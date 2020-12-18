@@ -1,0 +1,2731 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/4/2019 11:28:26 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-KSFBE82"
+  DTS:CreatorName="DESKTOP-KSFBE82\DEMEKE"
+  DTS:DTSID="{B38F0576-29B5-4F8B-8E51-3A872F5FF33C}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="14.0.3026.27"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Student_Data_UnioAll"
+  DTS:PackageType="5"
+  DTS:VersionBuild="18"
+  DTS:VersionGUID="{AA9FC161-6B1D-486B-B730-04424266779E}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Comma_Delimitted]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{334F52FD-5B6D-4E8E-848B-378C14E60362}"
+      DTS:ObjectName="Comma_Delimitted">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\DEMEKE\Desktop\Department File\DepartmentCommaDelimited.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DepartmentID"
+              DTS:DTSID="{070426A9-74B4-48A0-BFBC-6FAA0B9B3A35}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Name"
+              DTS:DTSID="{BFC3F1B4-9B09-4281-A195-D74253A09BFC}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="GroupName"
+              DTS:DTSID="{86EBC058-64ED-410D-B35C-7C8D1A70D8D5}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ModifiedDate"
+              DTS:DTSID="{AF77A0DD-E9DA-4F93-96E4-648B8B0EA4EC}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-KSFBE82.BI_PRACTICE]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{1500801E-8EB2-4814-A86D-17627600F278}"
+      DTS:ObjectName="DESKTOP-KSFBE82.BI_PRACTICE">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=DESKTOP-KSFBE82;Initial Catalog=BI_PRACTICE;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Excel Connection Manager]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{6661CDBD-F793-4864-8E9D-2BEC2BF77F88}"
+      DTS:ObjectName="Excel Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\DEMEKE\Desktop\Department File\Department.xls;Extended Properties=&quot;EXCEL 8.0;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Fixed_Witdth]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{7E6B3ED8-B64E-4248-ACA3-D95E432135EC}"
+      DTS:ObjectName="Fixed_Witdth">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="FixedWidth"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter="_x000D__x000A_"
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\DEMEKE\Desktop\Department File\DepartmentFixedWidth.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnDelimiter=""
+              DTS:ColumnWidth="50"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:ObjectName="DepartmentID                                      "
+              DTS:DTSID="{65016ED6-E1F0-468E-B543-A0A0BC1A6145}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnDelimiter=""
+              DTS:ColumnWidth="50"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:ObjectName="Name                                              "
+              DTS:DTSID="{C87553E3-D21C-4870-BF02-D26B2E73BB2A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnDelimiter=""
+              DTS:ColumnWidth="50"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:ObjectName="GroupName                                         "
+              DTS:DTSID="{4350A675-EDAB-4925-B847-DEF664F39FC8}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnDelimiter=""
+              DTS:ColumnWidth="50"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:ObjectName="ModifiedDate                                      "
+              DTS:DTSID="{10F54D7A-C29C-45AC-9727-A80C20EFDCF2}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Pipe_Delimited]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{20A85581-B8FC-4293-A1F9-D74A66FA9E45}"
+      DTS:ObjectName="Pipe_Delimited">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x0009_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\DEMEKE\Desktop\Department File\DepartmentPipeDelimited.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DepartmentID"
+              DTS:DTSID="{EA8551C4-B49F-4613-8A9F-5AA541A375EE}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Name"
+              DTS:DTSID="{B12FABFE-BFA5-4C58-A172-D91A1C43F565}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="GroupName"
+              DTS:DTSID="{CC6EC15F-A787-4930-8996-0B929FBF8642}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ModifiedDate"
+              DTS:DTSID="{2CB7D64A-BFDA-4182-A2D1-4D2CADCF0540}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Ragged_Right]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{ED79C47D-0A5A-4575-8AA7-9FE377346D36}"
+      DTS:ObjectName="Ragged_Right">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="RaggedRight"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter="_x000D__x000A_"
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\DEMEKE\Desktop\Department File\DepartmentRaggedRight.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnDelimiter=""
+              DTS:ColumnWidth="50"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:ObjectName="DepartmentID                                      "
+              DTS:DTSID="{FF78A54A-1E29-40C4-8AFE-2A0F5DABBDBE}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnDelimiter=""
+              DTS:ColumnWidth="50"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:ObjectName="Name                                              "
+              DTS:DTSID="{0252D93F-5147-4B40-900B-77B2ECD65A75}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnDelimiter=""
+              DTS:ColumnWidth="50"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:ObjectName="GroupName                                         "
+              DTS:DTSID="{075600D6-3CB2-46FD-B155-A6019846E1C7}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ModifiedDate"
+              DTS:DTSID="{E274EDB6-38BE-47B5-A224-A5C4D5CCC3A7}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Execute SQL Task"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{ED7E9321-A6BC-48EE-84C1-46D40921B999}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute SQL Task"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{1500801E-8EB2-4814-A86D-17627600F278}"
+          SQLTask:SqlStatementSource="Delete from Student_Data_Test" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Student_Data Task"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{C71A6416-A0A2-481E-98F1-397E570028ED}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Student_Data Task"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Student_Data Task\CommaDelimited_Source"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="CommaDelimited_Source"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Student_Data Task\CommaDelimited_Source.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Comma_Delimitted]"
+                  connectionManagerRefId="Package.ConnectionManagers[Comma_Delimitted]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Student_Data Task\CommaDelimited_Source.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Student_Data Task\CommaDelimited_Source.Outputs[Flat File Source Output].Columns[DepartmentID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Student_Data Task\CommaDelimited_Source.Outputs[Flat File Source Output].ExternalColumns[DepartmentID]"
+                      length="50"
+                      lineageId="Package\Student_Data Task\CommaDelimited_Source.Outputs[Flat File Source Output].Columns[DepartmentID]"
+                      name="DepartmentID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Student_Data Task\CommaDelimited_Source.Outputs[Flat File Source Output].Columns[Name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Student_Data Task\CommaDelimited_Source.Outputs[Flat File Source Output].ExternalColumns[Name]"
+                      length="50"
+                      lineageId="Package\Student_Data Task\CommaDelimited_Source.Outputs[Flat File Source Output].Columns[Name]"
+                      name="Name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Student_Data Task\CommaDelimited_Source.Outputs[Flat File Source Output].Columns[GroupName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Student_Data Task\CommaDelimited_Source.Outputs[Flat File Source Output].ExternalColumns[GroupName]"
+                      length="50"
+                      lineageId="Package\Student_Data Task\CommaDelimited_Source.Outputs[Flat File Source Output].Columns[GroupName]"
+                      name="GroupName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Student_Data Task\CommaDelimited_Source.Outputs[Flat File Source Output].Columns[ModifiedDate]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Student_Data Task\CommaDelimited_Source.Outputs[Flat File Source Output].ExternalColumns[ModifiedDate]"
+                      length="50"
+                      lineageId="Package\Student_Data Task\CommaDelimited_Source.Outputs[Flat File Source Output].Columns[ModifiedDate]"
+                      name="ModifiedDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Student_Data Task\CommaDelimited_Source.Outputs[Flat File Source Output].ExternalColumns[DepartmentID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="DepartmentID" />
+                    <externalMetadataColumn
+                      refId="Package\Student_Data Task\CommaDelimited_Source.Outputs[Flat File Source Output].ExternalColumns[Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Name" />
+                    <externalMetadataColumn
+                      refId="Package\Student_Data Task\CommaDelimited_Source.Outputs[Flat File Source Output].ExternalColumns[GroupName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="GroupName" />
+                    <externalMetadataColumn
+                      refId="Package\Student_Data Task\CommaDelimited_Source.Outputs[Flat File Source Output].ExternalColumns[ModifiedDate]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ModifiedDate" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Student_Data Task\CommaDelimited_Source.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Student_Data Task\CommaDelimited_Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\Student_Data Task\CommaDelimited_Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\Student_Data Task\CommaDelimited_Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Student_Data Task\CommaDelimited_Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Student_Data Task\CommaDelimited_Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Student_Data Task\CommaDelimited_Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Student_Data Task\Data Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Student_Data Task\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Student_Data Task\Data Conversion.Inputs[Data Conversion Input].Columns[DepartmentID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="DepartmentID"
+                      lineageId="Package\Student_Data Task\Raw File Source.Outputs[Raw File Source Output].Columns[DepartmentID]" />
+                    <inputColumn
+                      refId="Package\Student_Data Task\Data Conversion.Inputs[Data Conversion Input].Columns[Name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Name"
+                      lineageId="Package\Student_Data Task\Raw File Source.Outputs[Raw File Source Output].Columns[Name]" />
+                    <inputColumn
+                      refId="Package\Student_Data Task\Data Conversion.Inputs[Data Conversion Input].Columns[GroupName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="GroupName"
+                      lineageId="Package\Student_Data Task\Raw File Source.Outputs[Raw File Source Output].Columns[GroupName]" />
+                    <inputColumn
+                      refId="Package\Student_Data Task\Data Conversion.Inputs[Data Conversion Input].Columns[ModifiedDate]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="ModifiedDate"
+                      lineageId="Package\Student_Data Task\Raw File Source.Outputs[Raw File Source Output].Columns[ModifiedDate]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Student_Data Task\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Student_Data Task\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Student_Data Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of DepartmentID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Student_Data Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of DepartmentID]"
+                      name="Copy of DepartmentID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Student_Data Task\Raw File Source.Outputs[Raw File Source Output].Columns[DepartmentID]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Student_Data Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Student_Data Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Name]"
+                      name="Copy of Name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Student_Data Task\Raw File Source.Outputs[Raw File Source Output].Columns[Name]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Student_Data Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of GroupName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Student_Data Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of GroupName]"
+                      name="Copy of GroupName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Student_Data Task\Raw File Source.Outputs[Raw File Source Output].Columns[GroupName]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Student_Data Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of ModifiedDate]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Student_Data Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of ModifiedDate]"
+                      name="Copy of ModifiedDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Student_Data Task\Raw File Source.Outputs[Raw File Source Output].Columns[ModifiedDate]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Student_Data Task\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Student_Data Task\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Student_Data Task\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Student_Data Task\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Student_Data Task\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Student_Data Task\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Student_Data Task\Derived Column"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Student_Data Task\Derived Column.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Student_Data Task\Derived Column.Inputs[Derived Column Input].Columns[DepartmentID]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="DepartmentID"
+                      lineageId="Package\Student_Data Task\Excel Source.Outputs[Excel Source Output].Columns[DepartmentID]" />
+                    <inputColumn
+                      refId="Package\Student_Data Task\Derived Column.Inputs[Derived Column Input].Columns[Name]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Name"
+                      lineageId="Package\Student_Data Task\Excel Source.Outputs[Excel Source Output].Columns[Name]" />
+                    <inputColumn
+                      refId="Package\Student_Data Task\Derived Column.Inputs[Derived Column Input].Columns[GroupName]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="GroupName"
+                      lineageId="Package\Student_Data Task\Excel Source.Outputs[Excel Source Output].Columns[GroupName]" />
+                    <inputColumn
+                      refId="Package\Student_Data Task\Derived Column.Inputs[Derived Column Input].Columns[ModifiedDate]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="ModifiedDate"
+                      lineageId="Package\Student_Data Task\Excel Source.Outputs[Excel Source Output].Columns[ModifiedDate]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Student_Data Task\Derived Column.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Student_Data Task\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Student_Data Task\Derived Column.Outputs[Derived Column Output].Columns[Derived Column 1]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Student_Data Task\Derived Column.Outputs[Derived Column Output].Columns[Derived Column 1]"
+                      name="Derived Column 1"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_STR,50,1252)(DT_WSTR,50)#{Package\Student_Data Task\Excel Source.Outputs[Excel Source Output].Columns[DepartmentID]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_STR,50,1252)(DT_WSTR,50)DepartmentID</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Student_Data Task\Derived Column.Outputs[Derived Column Output].Columns[Derived Column 2]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Student_Data Task\Derived Column.Outputs[Derived Column Output].Columns[Derived Column 2]"
+                      name="Derived Column 2"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_STR,50,1252)(DT_WSTR,50)#{Package\Student_Data Task\Excel Source.Outputs[Excel Source Output].Columns[Name]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_STR,50,1252)(DT_WSTR,50)Name</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Student_Data Task\Derived Column.Outputs[Derived Column Output].Columns[Derived Column 3]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Student_Data Task\Derived Column.Outputs[Derived Column Output].Columns[Derived Column 3]"
+                      name="Derived Column 3"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_STR,50,1252)(DT_WSTR,50)#{Package\Student_Data Task\Excel Source.Outputs[Excel Source Output].Columns[GroupName]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_STR,50,1252)(DT_WSTR,50)GroupName</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Student_Data Task\Derived Column.Outputs[Derived Column Output].Columns[Derived Column 4]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Student_Data Task\Derived Column.Outputs[Derived Column Output].Columns[Derived Column 4]"
+                      name="Derived Column 4"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_STR,50,1252)(DT_WSTR,50)#{Package\Student_Data Task\Excel Source.Outputs[Excel Source Output].Columns[ModifiedDate]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_STR,50,1252)(DT_WSTR,50)ModifiedDate</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Student_Data Task\Derived Column.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Student_Data Task\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Student_Data Task\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Student_Data Task\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Student_Data Task\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Student_Data Task\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Student_Data Task\Excel Source"
+              componentClassID="Microsoft.ExcelSource"
+              contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Excel Source"
+              name="Excel Source"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">DEPARTMENT</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mapping from parameters in the SQL command to variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Student_Data Task\Excel Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Student_Data Task\Excel Source.Outputs[Excel Source Output]"
+                  name="Excel Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Student_Data Task\Excel Source.Outputs[Excel Source Output].Columns[DepartmentID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Student_Data Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[DepartmentID]"
+                      length="255"
+                      lineageId="Package\Student_Data Task\Excel Source.Outputs[Excel Source Output].Columns[DepartmentID]"
+                      name="DepartmentID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Student_Data Task\Excel Source.Outputs[Excel Source Output].Columns[Name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Student_Data Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Name]"
+                      length="255"
+                      lineageId="Package\Student_Data Task\Excel Source.Outputs[Excel Source Output].Columns[Name]"
+                      name="Name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Student_Data Task\Excel Source.Outputs[Excel Source Output].Columns[GroupName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Student_Data Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[GroupName]"
+                      length="255"
+                      lineageId="Package\Student_Data Task\Excel Source.Outputs[Excel Source Output].Columns[GroupName]"
+                      name="GroupName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Student_Data Task\Excel Source.Outputs[Excel Source Output].Columns[ModifiedDate]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Student_Data Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[ModifiedDate]"
+                      length="255"
+                      lineageId="Package\Student_Data Task\Excel Source.Outputs[Excel Source Output].Columns[ModifiedDate]"
+                      name="ModifiedDate"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Student_Data Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[DepartmentID]"
+                      dataType="wstr"
+                      length="255"
+                      name="DepartmentID" />
+                    <externalMetadataColumn
+                      refId="Package\Student_Data Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Name]"
+                      dataType="wstr"
+                      length="255"
+                      name="Name" />
+                    <externalMetadataColumn
+                      refId="Package\Student_Data Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[GroupName]"
+                      dataType="wstr"
+                      length="255"
+                      name="GroupName" />
+                    <externalMetadataColumn
+                      refId="Package\Student_Data Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[ModifiedDate]"
+                      dataType="wstr"
+                      length="255"
+                      name="ModifiedDate" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Student_Data Task\Excel Source.Outputs[Excel Source Error Output]"
+                  isErrorOut="true"
+                  name="Excel Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Student_Data Task\Excel Source.Outputs[Excel Source Error Output].Columns[DepartmentID]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Student_Data Task\Excel Source.Outputs[Excel Source Error Output].Columns[DepartmentID]"
+                      name="DepartmentID" />
+                    <outputColumn
+                      refId="Package\Student_Data Task\Excel Source.Outputs[Excel Source Error Output].Columns[Name]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Student_Data Task\Excel Source.Outputs[Excel Source Error Output].Columns[Name]"
+                      name="Name" />
+                    <outputColumn
+                      refId="Package\Student_Data Task\Excel Source.Outputs[Excel Source Error Output].Columns[GroupName]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Student_Data Task\Excel Source.Outputs[Excel Source Error Output].Columns[GroupName]"
+                      name="GroupName" />
+                    <outputColumn
+                      refId="Package\Student_Data Task\Excel Source.Outputs[Excel Source Error Output].Columns[ModifiedDate]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Student_Data Task\Excel Source.Outputs[Excel Source Error Output].Columns[ModifiedDate]"
+                      name="ModifiedDate" />
+                    <outputColumn
+                      refId="Package\Student_Data Task\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Student_Data Task\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Student_Data Task\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Student_Data Task\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Student_Data Task\FixedWidth_Source"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="FixedWidth_Source"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Student_Data Task\FixedWidth_Source.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Fixed_Witdth]"
+                  connectionManagerRefId="Package.ConnectionManagers[Fixed_Witdth]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Student_Data Task\FixedWidth_Source.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Student_Data Task\FixedWidth_Source.Outputs[Flat File Source Output].Columns[DepartmentID                                      ]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Student_Data Task\FixedWidth_Source.Outputs[Flat File Source Output].ExternalColumns[DepartmentID                                      ]"
+                      length="50"
+                      lineageId="Package\Student_Data Task\FixedWidth_Source.Outputs[Flat File Source Output].Columns[DepartmentID                                      ]"
+                      name="DepartmentID                                      "
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Student_Data Task\FixedWidth_Source.Outputs[Flat File Source Output].Columns[Name                                              ]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Student_Data Task\FixedWidth_Source.Outputs[Flat File Source Output].ExternalColumns[Name                                              ]"
+                      length="50"
+                      lineageId="Package\Student_Data Task\FixedWidth_Source.Outputs[Flat File Source Output].Columns[Name                                              ]"
+                      name="Name                                              "
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Student_Data Task\FixedWidth_Source.Outputs[Flat File Source Output].Columns[GroupName                                         ]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Student_Data Task\FixedWidth_Source.Outputs[Flat File Source Output].ExternalColumns[GroupName                                         ]"
+                      length="50"
+                      lineageId="Package\Student_Data Task\FixedWidth_Source.Outputs[Flat File Source Output].Columns[GroupName                                         ]"
+                      name="GroupName                                         "
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Student_Data Task\FixedWidth_Source.Outputs[Flat File Source Output].Columns[ModifiedDate                                      ]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Student_Data Task\FixedWidth_Source.Outputs[Flat File Source Output].ExternalColumns[ModifiedDate                                      ]"
+                      length="50"
+                      lineageId="Package\Student_Data Task\FixedWidth_Source.Outputs[Flat File Source Output].Columns[ModifiedDate                                      ]"
+                      name="ModifiedDate                                      "
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Student_Data Task\FixedWidth_Source.Outputs[Flat File Source Output].ExternalColumns[DepartmentID                                      ]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="DepartmentID                                      " />
+                    <externalMetadataColumn
+                      refId="Package\Student_Data Task\FixedWidth_Source.Outputs[Flat File Source Output].ExternalColumns[Name                                              ]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Name                                              " />
+                    <externalMetadataColumn
+                      refId="Package\Student_Data Task\FixedWidth_Source.Outputs[Flat File Source Output].ExternalColumns[GroupName                                         ]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="GroupName                                         " />
+                    <externalMetadataColumn
+                      refId="Package\Student_Data Task\FixedWidth_Source.Outputs[Flat File Source Output].ExternalColumns[ModifiedDate                                      ]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ModifiedDate                                      " />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Student_Data Task\FixedWidth_Source.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Student_Data Task\FixedWidth_Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\Student_Data Task\FixedWidth_Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\Student_Data Task\FixedWidth_Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Student_Data Task\FixedWidth_Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Student_Data Task\FixedWidth_Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Student_Data Task\FixedWidth_Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Student_Data Task\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[Student_Data_Test]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Student_Data Task\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-KSFBE82.BI_PRACTICE]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-KSFBE82.BI_PRACTICE]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Student_Data Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Student_Data Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DepartmentID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="DepartmentID"
+                      externalMetadataColumnId="Package\Student_Data Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DepartmentID]"
+                      lineageId="Package\Student_Data Task\Union All.Outputs[Union All Output 1].Columns[DepartmentID]" />
+                    <inputColumn
+                      refId="Package\Student_Data Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Name"
+                      externalMetadataColumnId="Package\Student_Data Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Name]"
+                      lineageId="Package\Student_Data Task\Union All.Outputs[Union All Output 1].Columns[Name]" />
+                    <inputColumn
+                      refId="Package\Student_Data Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[GroupName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="GroupName"
+                      externalMetadataColumnId="Package\Student_Data Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[GroupName]"
+                      lineageId="Package\Student_Data Task\Union All.Outputs[Union All Output 1].Columns[GroupName]" />
+                    <inputColumn
+                      refId="Package\Student_Data Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ModifiedDate]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="ModifiedDate"
+                      externalMetadataColumnId="Package\Student_Data Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ModifiedDate]"
+                      lineageId="Package\Student_Data Task\Union All.Outputs[Union All Output 1].Columns[ModifiedDate]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Student_Data Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DepartmentID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="DepartmentID" />
+                    <externalMetadataColumn
+                      refId="Package\Student_Data Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Name" />
+                    <externalMetadataColumn
+                      refId="Package\Student_Data Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[GroupName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="GroupName" />
+                    <externalMetadataColumn
+                      refId="Package\Student_Data Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ModifiedDate]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="ModifiedDate" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Student_Data Task\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Student_Data Task\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Student_Data Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Student_Data Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Student_Data Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Student_Data Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Student_Data Task\PipeDilimeted_Source"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="PipeDilimeted_Source"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Student_Data Task\PipeDilimeted_Source.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Pipe_Delimited]"
+                  connectionManagerRefId="Package.ConnectionManagers[Pipe_Delimited]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Student_Data Task\PipeDilimeted_Source.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Student_Data Task\PipeDilimeted_Source.Outputs[Flat File Source Output].Columns[DepartmentID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Student_Data Task\PipeDilimeted_Source.Outputs[Flat File Source Output].ExternalColumns[DepartmentID]"
+                      length="50"
+                      lineageId="Package\Student_Data Task\PipeDilimeted_Source.Outputs[Flat File Source Output].Columns[DepartmentID]"
+                      name="DepartmentID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Student_Data Task\PipeDilimeted_Source.Outputs[Flat File Source Output].Columns[Name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Student_Data Task\PipeDilimeted_Source.Outputs[Flat File Source Output].ExternalColumns[Name]"
+                      length="50"
+                      lineageId="Package\Student_Data Task\PipeDilimeted_Source.Outputs[Flat File Source Output].Columns[Name]"
+                      name="Name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Student_Data Task\PipeDilimeted_Source.Outputs[Flat File Source Output].Columns[GroupName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Student_Data Task\PipeDilimeted_Source.Outputs[Flat File Source Output].ExternalColumns[GroupName]"
+                      length="50"
+                      lineageId="Package\Student_Data Task\PipeDilimeted_Source.Outputs[Flat File Source Output].Columns[GroupName]"
+                      name="GroupName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Student_Data Task\PipeDilimeted_Source.Outputs[Flat File Source Output].Columns[ModifiedDate]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Student_Data Task\PipeDilimeted_Source.Outputs[Flat File Source Output].ExternalColumns[ModifiedDate]"
+                      length="50"
+                      lineageId="Package\Student_Data Task\PipeDilimeted_Source.Outputs[Flat File Source Output].Columns[ModifiedDate]"
+                      name="ModifiedDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Student_Data Task\PipeDilimeted_Source.Outputs[Flat File Source Output].ExternalColumns[DepartmentID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="DepartmentID" />
+                    <externalMetadataColumn
+                      refId="Package\Student_Data Task\PipeDilimeted_Source.Outputs[Flat File Source Output].ExternalColumns[Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Name" />
+                    <externalMetadataColumn
+                      refId="Package\Student_Data Task\PipeDilimeted_Source.Outputs[Flat File Source Output].ExternalColumns[GroupName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="GroupName" />
+                    <externalMetadataColumn
+                      refId="Package\Student_Data Task\PipeDilimeted_Source.Outputs[Flat File Source Output].ExternalColumns[ModifiedDate]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ModifiedDate" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Student_Data Task\PipeDilimeted_Source.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Student_Data Task\PipeDilimeted_Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\Student_Data Task\PipeDilimeted_Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\Student_Data Task\PipeDilimeted_Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Student_Data Task\PipeDilimeted_Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Student_Data Task\PipeDilimeted_Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Student_Data Task\PipeDilimeted_Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Student_Data Task\RaggedRight_ Source"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="RaggedRight_ Source"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Student_Data Task\RaggedRight_ Source.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Ragged_Right]"
+                  connectionManagerRefId="Package.ConnectionManagers[Ragged_Right]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Student_Data Task\RaggedRight_ Source.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Student_Data Task\RaggedRight_ Source.Outputs[Flat File Source Output].Columns[DepartmentID                                      ]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Student_Data Task\RaggedRight_ Source.Outputs[Flat File Source Output].ExternalColumns[DepartmentID                                      ]"
+                      length="50"
+                      lineageId="Package\Student_Data Task\RaggedRight_ Source.Outputs[Flat File Source Output].Columns[DepartmentID                                      ]"
+                      name="DepartmentID                                      "
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Student_Data Task\RaggedRight_ Source.Outputs[Flat File Source Output].Columns[Name                                              ]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Student_Data Task\RaggedRight_ Source.Outputs[Flat File Source Output].ExternalColumns[Name                                              ]"
+                      length="50"
+                      lineageId="Package\Student_Data Task\RaggedRight_ Source.Outputs[Flat File Source Output].Columns[Name                                              ]"
+                      name="Name                                              "
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Student_Data Task\RaggedRight_ Source.Outputs[Flat File Source Output].Columns[GroupName                                         ]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Student_Data Task\RaggedRight_ Source.Outputs[Flat File Source Output].ExternalColumns[GroupName                                         ]"
+                      length="50"
+                      lineageId="Package\Student_Data Task\RaggedRight_ Source.Outputs[Flat File Source Output].Columns[GroupName                                         ]"
+                      name="GroupName                                         "
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Student_Data Task\RaggedRight_ Source.Outputs[Flat File Source Output].Columns[ModifiedDate]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Student_Data Task\RaggedRight_ Source.Outputs[Flat File Source Output].ExternalColumns[ModifiedDate]"
+                      length="50"
+                      lineageId="Package\Student_Data Task\RaggedRight_ Source.Outputs[Flat File Source Output].Columns[ModifiedDate]"
+                      name="ModifiedDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Student_Data Task\RaggedRight_ Source.Outputs[Flat File Source Output].ExternalColumns[DepartmentID                                      ]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="DepartmentID                                      " />
+                    <externalMetadataColumn
+                      refId="Package\Student_Data Task\RaggedRight_ Source.Outputs[Flat File Source Output].ExternalColumns[Name                                              ]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Name                                              " />
+                    <externalMetadataColumn
+                      refId="Package\Student_Data Task\RaggedRight_ Source.Outputs[Flat File Source Output].ExternalColumns[GroupName                                         ]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="GroupName                                         " />
+                    <externalMetadataColumn
+                      refId="Package\Student_Data Task\RaggedRight_ Source.Outputs[Flat File Source Output].ExternalColumns[ModifiedDate]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ModifiedDate" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Student_Data Task\RaggedRight_ Source.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Student_Data Task\RaggedRight_ Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\Student_Data Task\RaggedRight_ Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\Student_Data Task\RaggedRight_ Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Student_Data Task\RaggedRight_ Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Student_Data Task\RaggedRight_ Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Student_Data Task\RaggedRight_ Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Student_Data Task\Raw File Source"
+              componentClassID="Microsoft.RawSource"
+              contactInfo="Reads raw data from a flat file that was previously written by the Raw File destination. For example, allow packages to run faster by reading from a local raw file instead of a slow source or manually distribute data for parallel processing on multiple computers.;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Reads raw data from a flat file that was previously written by the Raw File destination. For example, allow packages to run faster by reading from a local raw file instead of a slow source or manually distribute data for parallel processing on multiple computers."
+              name="Raw File Source"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the file."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Output file name"
+                  name="FileName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.NonValidatingFileNameEditor">C:\Users\DEMEKE\Desktop\Department File\DepartmentRawFile</property>
+                <property
+                  dataType="System.Null"
+                  description="Name of the variable that contains the file name"
+                  name="FileNameVariable" />
+              </properties>
+              <outputs>
+                <output
+                  refId="Package\Student_Data Task\Raw File Source.Outputs[Raw File Source Output]"
+                  name="Raw File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Student_Data Task\Raw File Source.Outputs[Raw File Source Output].Columns[DepartmentID]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Student_Data Task\Raw File Source.Outputs[Raw File Source Output].ExternalColumns[DepartmentID]"
+                      length="50"
+                      lineageId="Package\Student_Data Task\Raw File Source.Outputs[Raw File Source Output].Columns[DepartmentID]"
+                      name="DepartmentID" />
+                    <outputColumn
+                      refId="Package\Student_Data Task\Raw File Source.Outputs[Raw File Source Output].Columns[Name]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Student_Data Task\Raw File Source.Outputs[Raw File Source Output].ExternalColumns[Name]"
+                      length="50"
+                      lineageId="Package\Student_Data Task\Raw File Source.Outputs[Raw File Source Output].Columns[Name]"
+                      name="Name" />
+                    <outputColumn
+                      refId="Package\Student_Data Task\Raw File Source.Outputs[Raw File Source Output].Columns[GroupName]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Student_Data Task\Raw File Source.Outputs[Raw File Source Output].ExternalColumns[GroupName]"
+                      length="50"
+                      lineageId="Package\Student_Data Task\Raw File Source.Outputs[Raw File Source Output].Columns[GroupName]"
+                      name="GroupName" />
+                    <outputColumn
+                      refId="Package\Student_Data Task\Raw File Source.Outputs[Raw File Source Output].Columns[ModifiedDate]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Student_Data Task\Raw File Source.Outputs[Raw File Source Output].ExternalColumns[ModifiedDate]"
+                      length="50"
+                      lineageId="Package\Student_Data Task\Raw File Source.Outputs[Raw File Source Output].Columns[ModifiedDate]"
+                      name="ModifiedDate" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Student_Data Task\Raw File Source.Outputs[Raw File Source Output].ExternalColumns[DepartmentID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="DepartmentID" />
+                    <externalMetadataColumn
+                      refId="Package\Student_Data Task\Raw File Source.Outputs[Raw File Source Output].ExternalColumns[Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Name" />
+                    <externalMetadataColumn
+                      refId="Package\Student_Data Task\Raw File Source.Outputs[Raw File Source Output].ExternalColumns[GroupName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="GroupName" />
+                    <externalMetadataColumn
+                      refId="Package\Student_Data Task\Raw File Source.Outputs[Raw File Source Output].ExternalColumns[ModifiedDate]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ModifiedDate" />
+                  </externalMetadataColumns>
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Student_Data Task\Union All"
+              componentClassID="Microsoft.UnionAll"
+              contactInfo="Union All;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Combines rows from multiple data flows without sorting. For example, add rows back to a data flow after correction of errors. If sorting is important, we recommend using the Merge transformation."
+              name="Union All"
+              version="1">
+              <inputs>
+                <input
+                  refId="Package\Student_Data Task\Union All.Inputs[Union All Input 1]"
+                  name="Union All Input 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Student_Data Task\Union All.Inputs[Union All Input 1].Columns[DepartmentID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="DepartmentID"
+                      lineageId="Package\Student_Data Task\CommaDelimited_Source.Outputs[Flat File Source Output].Columns[DepartmentID]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Student_Data Task\Union All.Outputs[Union All Output 1].Columns[DepartmentID]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Student_Data Task\Union All.Inputs[Union All Input 1].Columns[Name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Name"
+                      lineageId="Package\Student_Data Task\CommaDelimited_Source.Outputs[Flat File Source Output].Columns[Name]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Student_Data Task\Union All.Outputs[Union All Output 1].Columns[Name]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Student_Data Task\Union All.Inputs[Union All Input 1].Columns[GroupName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="GroupName"
+                      lineageId="Package\Student_Data Task\CommaDelimited_Source.Outputs[Flat File Source Output].Columns[GroupName]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Student_Data Task\Union All.Outputs[Union All Output 1].Columns[GroupName]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Student_Data Task\Union All.Inputs[Union All Input 1].Columns[ModifiedDate]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="ModifiedDate"
+                      lineageId="Package\Student_Data Task\CommaDelimited_Source.Outputs[Flat File Source Output].Columns[ModifiedDate]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Student_Data Task\Union All.Outputs[Union All Output 1].Columns[ModifiedDate]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Student_Data Task\Union All.Inputs[Union All Input 2]"
+                  hasSideEffects="true"
+                  name="Union All Input 2">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Student_Data Task\Union All.Inputs[Union All Input 2].Columns[DepartmentID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="DepartmentID"
+                      lineageId="Package\Student_Data Task\PipeDilimeted_Source.Outputs[Flat File Source Output].Columns[DepartmentID]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Student_Data Task\Union All.Outputs[Union All Output 1].Columns[DepartmentID]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Student_Data Task\Union All.Inputs[Union All Input 2].Columns[Name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Name"
+                      lineageId="Package\Student_Data Task\PipeDilimeted_Source.Outputs[Flat File Source Output].Columns[Name]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Student_Data Task\Union All.Outputs[Union All Output 1].Columns[Name]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Student_Data Task\Union All.Inputs[Union All Input 2].Columns[GroupName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="GroupName"
+                      lineageId="Package\Student_Data Task\PipeDilimeted_Source.Outputs[Flat File Source Output].Columns[GroupName]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Student_Data Task\Union All.Outputs[Union All Output 1].Columns[GroupName]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Student_Data Task\Union All.Inputs[Union All Input 2].Columns[ModifiedDate]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="ModifiedDate"
+                      lineageId="Package\Student_Data Task\PipeDilimeted_Source.Outputs[Flat File Source Output].Columns[ModifiedDate]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Student_Data Task\Union All.Outputs[Union All Output 1].Columns[ModifiedDate]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Student_Data Task\Union All.Inputs[Union All Input 3]"
+                  hasSideEffects="true"
+                  name="Union All Input 3">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Student_Data Task\Union All.Inputs[Union All Input 3].Columns[ModifiedDate]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="ModifiedDate"
+                      lineageId="Package\Student_Data Task\RaggedRight_ Source.Outputs[Flat File Source Output].Columns[ModifiedDate]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Student_Data Task\Union All.Outputs[Union All Output 1].Columns[ModifiedDate]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Student_Data Task\Union All.Inputs[Union All Input 3].Columns[DepartmentID                                      ]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="DepartmentID                                      "
+                      lineageId="Package\Student_Data Task\RaggedRight_ Source.Outputs[Flat File Source Output].Columns[DepartmentID                                      ]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Student_Data Task\Union All.Outputs[Union All Output 1].Columns[DepartmentID]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Student_Data Task\Union All.Inputs[Union All Input 3].Columns[Name                                              ]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Name                                              "
+                      lineageId="Package\Student_Data Task\RaggedRight_ Source.Outputs[Flat File Source Output].Columns[Name                                              ]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Student_Data Task\Union All.Outputs[Union All Output 1].Columns[Name]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Student_Data Task\Union All.Inputs[Union All Input 3].Columns[GroupName                                         ]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="GroupName                                         "
+                      lineageId="Package\Student_Data Task\RaggedRight_ Source.Outputs[Flat File Source Output].Columns[GroupName                                         ]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Student_Data Task\Union All.Outputs[Union All Output 1].Columns[GroupName]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Student_Data Task\Union All.Inputs[Union All Input 4]"
+                  hasSideEffects="true"
+                  name="Union All Input 4">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Student_Data Task\Union All.Inputs[Union All Input 4].Columns[DepartmentID                                      ]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="DepartmentID                                      "
+                      lineageId="Package\Student_Data Task\FixedWidth_Source.Outputs[Flat File Source Output].Columns[DepartmentID                                      ]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Student_Data Task\Union All.Outputs[Union All Output 1].Columns[DepartmentID]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Student_Data Task\Union All.Inputs[Union All Input 4].Columns[Name                                              ]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Name                                              "
+                      lineageId="Package\Student_Data Task\FixedWidth_Source.Outputs[Flat File Source Output].Columns[Name                                              ]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Student_Data Task\Union All.Outputs[Union All Output 1].Columns[Name]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Student_Data Task\Union All.Inputs[Union All Input 4].Columns[GroupName                                         ]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="GroupName                                         "
+                      lineageId="Package\Student_Data Task\FixedWidth_Source.Outputs[Flat File Source Output].Columns[GroupName                                         ]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Student_Data Task\Union All.Outputs[Union All Output 1].Columns[GroupName]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Student_Data Task\Union All.Inputs[Union All Input 4].Columns[ModifiedDate                                      ]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="ModifiedDate                                      "
+                      lineageId="Package\Student_Data Task\FixedWidth_Source.Outputs[Flat File Source Output].Columns[ModifiedDate                                      ]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Student_Data Task\Union All.Outputs[Union All Output 1].Columns[ModifiedDate]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Student_Data Task\Union All.Inputs[Union All Input 6]"
+                  hasSideEffects="true"
+                  name="Union All Input 6">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Student_Data Task\Union All.Inputs[Union All Input 6].Columns[DepartmentID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="DepartmentID"
+                      lineageId="Package\Student_Data Task\Raw File Source.Outputs[Raw File Source Output].Columns[DepartmentID]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Student_Data Task\Union All.Outputs[Union All Output 1].Columns[DepartmentID]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Student_Data Task\Union All.Inputs[Union All Input 6].Columns[Name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Name"
+                      lineageId="Package\Student_Data Task\Raw File Source.Outputs[Raw File Source Output].Columns[Name]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Student_Data Task\Union All.Outputs[Union All Output 1].Columns[Name]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Student_Data Task\Union All.Inputs[Union All Input 6].Columns[GroupName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="GroupName"
+                      lineageId="Package\Student_Data Task\Raw File Source.Outputs[Raw File Source Output].Columns[GroupName]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Student_Data Task\Union All.Outputs[Union All Output 1].Columns[GroupName]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Student_Data Task\Union All.Inputs[Union All Input 6].Columns[ModifiedDate]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="ModifiedDate"
+                      lineageId="Package\Student_Data Task\Raw File Source.Outputs[Raw File Source Output].Columns[ModifiedDate]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Student_Data Task\Union All.Outputs[Union All Output 1].Columns[ModifiedDate]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Student_Data Task\Union All.Inputs[Union All Input 5]"
+                  hasSideEffects="true"
+                  name="Union All Input 5">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Student_Data Task\Union All.Inputs[Union All Input 5].Columns[Derived Column 1]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Derived Column 1"
+                      lineageId="Package\Student_Data Task\Derived Column.Outputs[Derived Column Output].Columns[Derived Column 1]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Student_Data Task\Union All.Outputs[Union All Output 1].Columns[DepartmentID]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Student_Data Task\Union All.Inputs[Union All Input 5].Columns[Derived Column 2]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Derived Column 2"
+                      lineageId="Package\Student_Data Task\Derived Column.Outputs[Derived Column Output].Columns[Derived Column 2]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Student_Data Task\Union All.Outputs[Union All Output 1].Columns[Name]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Student_Data Task\Union All.Inputs[Union All Input 5].Columns[Derived Column 3]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Derived Column 3"
+                      lineageId="Package\Student_Data Task\Derived Column.Outputs[Derived Column Output].Columns[Derived Column 3]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Student_Data Task\Union All.Outputs[Union All Output 1].Columns[GroupName]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Student_Data Task\Union All.Inputs[Union All Input 5].Columns[Derived Column 4]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Derived Column 4"
+                      lineageId="Package\Student_Data Task\Derived Column.Outputs[Derived Column Output].Columns[Derived Column 4]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Student_Data Task\Union All.Outputs[Union All Output 1].Columns[ModifiedDate]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Student_Data Task\Union All.Inputs[Union All Input 7]"
+                  dangling="true"
+                  hasSideEffects="true"
+                  name="Union All Input 7">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Student_Data Task\Union All.Outputs[Union All Output 1]"
+                  name="Union All Output 1">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Student_Data Task\Union All.Outputs[Union All Output 1].Columns[DepartmentID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Student_Data Task\Union All.Outputs[Union All Output 1].Columns[DepartmentID]"
+                      name="DepartmentID" />
+                    <outputColumn
+                      refId="Package\Student_Data Task\Union All.Outputs[Union All Output 1].Columns[Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Student_Data Task\Union All.Outputs[Union All Output 1].Columns[Name]"
+                      name="Name" />
+                    <outputColumn
+                      refId="Package\Student_Data Task\Union All.Outputs[Union All Output 1].Columns[GroupName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Student_Data Task\Union All.Outputs[Union All Output 1].Columns[GroupName]"
+                      name="GroupName" />
+                    <outputColumn
+                      refId="Package\Student_Data Task\Union All.Outputs[Union All Output 1].Columns[ModifiedDate]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Student_Data Task\Union All.Outputs[Union All Output 1].Columns[ModifiedDate]"
+                      name="ModifiedDate" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Student_Data Task.Paths[Data Conversion Output]"
+              endId="Package\Student_Data Task\Union All.Inputs[Union All Input 6]"
+              name="Data Conversion Output"
+              startId="Package\Student_Data Task\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Student_Data Task.Paths[Derived Column Output]"
+              endId="Package\Student_Data Task\Union All.Inputs[Union All Input 5]"
+              name="Derived Column Output"
+              startId="Package\Student_Data Task\Derived Column.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Student_Data Task.Paths[Excel Source Output]"
+              endId="Package\Student_Data Task\Derived Column.Inputs[Derived Column Input]"
+              name="Excel Source Output"
+              startId="Package\Student_Data Task\Excel Source.Outputs[Excel Source Output]" />
+            <path
+              refId="Package\Student_Data Task.Paths[Flat File Source Output]"
+              endId="Package\Student_Data Task\Union All.Inputs[Union All Input 1]"
+              name="Flat File Source Output"
+              startId="Package\Student_Data Task\CommaDelimited_Source.Outputs[Flat File Source Output]" />
+            <path
+              refId="Package\Student_Data Task.Paths[Flat File Source Output1]"
+              endId="Package\Student_Data Task\Union All.Inputs[Union All Input 2]"
+              name="Flat File Source Output"
+              startId="Package\Student_Data Task\PipeDilimeted_Source.Outputs[Flat File Source Output]" />
+            <path
+              refId="Package\Student_Data Task.Paths[Flat File Source Output2]"
+              endId="Package\Student_Data Task\Union All.Inputs[Union All Input 3]"
+              name="Flat File Source Output"
+              startId="Package\Student_Data Task\RaggedRight_ Source.Outputs[Flat File Source Output]" />
+            <path
+              refId="Package\Student_Data Task.Paths[Flat File Source Output3]"
+              endId="Package\Student_Data Task\Union All.Inputs[Union All Input 4]"
+              name="Flat File Source Output"
+              startId="Package\Student_Data Task\FixedWidth_Source.Outputs[Flat File Source Output]" />
+            <path
+              refId="Package\Student_Data Task.Paths[Raw File Source Output]"
+              endId="Package\Student_Data Task\Data Conversion.Inputs[Data Conversion Input]"
+              name="Raw File Source Output"
+              startId="Package\Student_Data Task\Raw File Source.Outputs[Raw File Source Output]" />
+            <path
+              refId="Package\Student_Data Task.Paths[Union All Output 1]"
+              endId="Package\Student_Data Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Union All Output 1"
+              startId="Package\Student_Data Task\Union All.Outputs[Union All Output 1]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{ADD4E449-3CB2-4591-A766-0A5821068893}"
+      DTS:From="Package\Execute SQL Task"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Student_Data Task" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="164,42.4"
+          Id="Package\Execute SQL Task"
+          TopLeft="19.166666381061,22.0999996048213" />
+        <NodeLayout
+          Size="169.6,42.4"
+          Id="Package\Student_Data Task"
+          TopLeft="112.130949487568,101.986273271717" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="101.166666381061,64.4999996048213">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="95.7642831065068,37.4862736668955"
+              Start="0,0"
+              End="95.7642831065068,29.9862736668955">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,14.7431368334477" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,14.7431368334477"
+                    Point2="0,18.7431368334477"
+                    Point3="4,18.7431368334477" />
+                  <mssgle:LineSegment
+                    End="91.7642831065068,18.7431368334477" />
+                  <mssgle:CubicBezierSegment
+                    Point1="91.7642831065068,18.7431368334477"
+                    Point2="95.7642831065068,18.7431368334477"
+                    Point3="95.7642831065068,22.7431368334477" />
+                  <mssgle:LineSegment
+                    End="95.7642831065068,29.9862736668955" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <AnnotationLayout
+          Text="In Union All No need to sort the data,Output will be unsorted data &#xA;and It can accept more than 2 inputs"
+          ParentId="Package"
+          FontInfo="{assembly:Null}"
+          Size="382.4,56"
+          Id="1d092887-aebb-4f19-ae27-d7f9077e139e"
+          TopLeft="15.8333330973983,167.69999700129" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Student_Data Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="172,42.6666666666667"
+          Id="Package\Student_Data Task\OLE DB Destination"
+          TopLeft="299.999995529652,292.933328095277" />
+        <NodeLayout
+          Size="154.666666666667,42.6666666666667"
+          Id="Package\Student_Data Task\Derived Column"
+          TopLeft="127.499998100102,81.4666652099292" />
+        <NodeLayout
+          Size="169.333333333334,42.6666666666667"
+          Id="Package\Student_Data Task\FixedWidth_Source"
+          TopLeft="629.047609674079,257.895233483712" />
+        <NodeLayout
+          Size="157.333333333334,42.6666666666667"
+          Id="Package\Student_Data Task\Data Conversion"
+          TopLeft="112.380951046944,186.847615808703" />
+        <NodeLayout
+          Size="154.666666666667,42.6666666666667"
+          Id="Package\Student_Data Task\Raw File Source"
+          TopLeft="5.95238086368354,274.485709377527" />
+        <NodeLayout
+          Size="121.333333333334,42.6666666666667"
+          Id="Package\Student_Data Task\Union All"
+          TopLeft="352.499995414345,127.295235921201" />
+        <NodeLayout
+          Size="181.333333333334,42.6666666666667"
+          Id="Package\Student_Data Task\PipeDilimeted_Source"
+          TopLeft="597.857133948377,25.25714240551" />
+        <NodeLayout
+          Size="139.333333333334,42.6666666666667"
+          Id="Package\Student_Data Task\Excel Source"
+          TopLeft="16.9642854614982,17.5809520665804" />
+        <NodeLayout
+          Size="197.333333333334,42.6666666666667"
+          Id="Package\Student_Data Task\CommaDelimited_Source"
+          TopLeft="332.738090279911,13.6190473755201" />
+        <NodeLayout
+          Size="181.333333333334,42.6666666666667"
+          Id="Package\Student_Data Task\RaggedRight_ Source"
+          TopLeft="610.833324784679,141.019045097431" />
+        <EdgeLayout
+          Id="Package\Student_Data Task.Paths[Derived Column Output]"
+          TopLeft="282.166664766769,102.799998543263">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="70.3333306475765,40.0507929334943"
+              Start="0,0"
+              End="62.8333306475765,40.0507929334943">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="36.674697241972,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="36.674697241972,0"
+                    Point2="40.674697241972,0"
+                    Point3="40.674697241972,4" />
+                  <mssgle:LineSegment
+                    End="40.674697241972,36.0507929334943" />
+                  <mssgle:CubicBezierSegment
+                    Point1="40.674697241972,36.0507929334943"
+                    Point2="40.674697241972,40.0507929334943"
+                    Point3="44.674697241972,40.0507929334943" />
+                  <mssgle:LineSegment
+                    End="62.8333306475765,40.0507929334943" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Student_Data Task.Paths[Data Conversion Output]"
+          TopLeft="269.714284380277,208.180949142036">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="82.7857110340681,-59.5523798875014"
+              Start="0,0"
+              End="75.2857110340681,-59.5523798875014">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="37.3928555170341,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="37.3928555170341,0"
+                    Point2="41.3928555170341,0"
+                    Point3="41.3928555170341,-4" />
+                  <mssgle:LineSegment
+                    End="41.3928555170341,-55.5523798875014" />
+                  <mssgle:CubicBezierSegment
+                    Point1="41.3928555170341,-55.5523798875014"
+                    Point2="41.3928555170341,-59.5523798875014"
+                    Point3="45.3928555170341,-59.5523798875014" />
+                  <mssgle:LineSegment
+                    End="75.2857110340681,-59.5523798875014" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Student_Data Task.Paths[Union All Output 1]"
+          TopLeft="394.277773192123,169.961902587868">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-8.27777766247124,122.971425507409"
+              Start="0,0"
+              End="-8.27777766247124,115.471425507409">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,46.1488676689651" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,46.1488676689651"
+                    Point2="0,50.1488676689651"
+                    Point3="-4,50.1488676689651" />
+                  <mssgle:LineSegment
+                    End="-4.27777766247124,50.1488676689651" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-4.27777766247124,50.1488676689651"
+                    Point2="-8.27777766247124,50.1488676689651"
+                    Point3="-8.27777766247124,54.1488676689651" />
+                  <mssgle:LineSegment
+                    End="-8.27777766247124,115.471425507409" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Student_Data Task.Paths[Raw File Source Output]"
+          TopLeft="83.2857141970169,274.485709377527">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="107.761903516593,-44.971426902158"
+              Start="0,0"
+              End="107.761903516593,-37.471426902158">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-18.485713451079" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-18.485713451079"
+                    Point2="0,-22.485713451079"
+                    Point3="4,-22.485713451079" />
+                  <mssgle:LineSegment
+                    End="103.761903516593,-22.485713451079" />
+                  <mssgle:CubicBezierSegment
+                    Point1="103.761903516593,-22.485713451079"
+                    Point2="107.761903516593,-22.485713451079"
+                    Point3="107.761903516593,-26.485713451079" />
+                  <mssgle:LineSegment
+                    End="107.761903516593,-37.471426902158" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Student_Data Task.Paths[Flat File Source Output3]"
+          TopLeft="713.714276340746,257.895233483712">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-300.547614259734,-87.9333308958439"
+              Start="0,0"
+              End="-300.547614259734,-80.4333308958439">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-39.966665447922" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-39.966665447922"
+                    Point2="0,-43.966665447922"
+                    Point3="-4,-43.966665447922" />
+                  <mssgle:LineSegment
+                    End="-296.547614259734,-43.966665447922" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-296.547614259734,-43.966665447922"
+                    Point2="-300.547614259734,-43.966665447922"
+                    Point3="-300.547614259734,-47.966665447922" />
+                  <mssgle:LineSegment
+                    End="-300.547614259734,-80.4333308958439" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Student_Data Task.Paths[Flat File Source Output2]"
+          TopLeft="610.833324784679,162.352378430764">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-136.999996037001,-13.7238091762293"
+              Start="0,0"
+              End="-129.499996037001,-13.7238091762293">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-64.4999980185004,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-64.4999980185004,0"
+                    Point2="-68.4999980185004,0"
+                    Point3="-68.4999980185004,-4" />
+                  <mssgle:LineSegment
+                    End="-68.4999980185004,-9.72380917622928" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-68.4999980185004,-9.72380917622928"
+                    Point2="-68.4999980185004,-13.7238091762293"
+                    Point3="-72.4999980185004,-13.7238091762293" />
+                  <mssgle:LineSegment
+                    End="-129.499996037001,-13.7238091762293" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Student_Data Task.Paths[Flat File Source Output1]"
+          TopLeft="688.523800615044,67.9238090721767">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-256.468249645143,59.3714268490246"
+              Start="0,0"
+              End="-256.468249645143,51.8714268490246">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.1592180689452" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.1592180689452"
+                    Point2="0,35.1592180689452"
+                    Point3="-4,35.1592180689452" />
+                  <mssgle:LineSegment
+                    End="-252.468249645143,35.1592180689452" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-252.468249645143,35.1592180689452"
+                    Point2="-256.468249645143,35.1592180689452"
+                    Point3="-256.468249645143,39.1592180689452" />
+                  <mssgle:LineSegment
+                    End="-256.468249645143,51.8714268490246" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Student_Data Task.Paths[Flat File Source Output]"
+          TopLeft="431.404756946578,56.2857140421867">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-18.2380948655661,71.0095218790146"
+              Start="0,0"
+              End="-18.2380948655661,63.5095218790146">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.5047609395073" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.5047609395073"
+                    Point2="0,35.5047609395073"
+                    Point3="-4,35.5047609395073" />
+                  <mssgle:LineSegment
+                    End="-14.2380948655661,35.5047609395073" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-14.2380948655661,35.5047609395073"
+                    Point2="-18.2380948655661,35.5047609395073"
+                    Point3="-18.2380948655661,39.5047609395073" />
+                  <mssgle:LineSegment
+                    End="-18.2380948655661,63.5095218790146" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Student_Data Task.Paths[Excel Source Output]"
+          TopLeft="156.297618794832,38.9142853999138">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="48.5357126386038,42.5523798100154"
+              Start="0,0"
+              End="48.5357126386038,35.0523798100154">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="44.5357126386038,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="44.5357126386038,0"
+                    Point2="48.5357126386038,0"
+                    Point3="48.5357126386038,4" />
+                  <mssgle:LineSegment
+                    End="48.5357126386038,35.0523798100154" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Student_Data Task\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Student_Data Task\Excel Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

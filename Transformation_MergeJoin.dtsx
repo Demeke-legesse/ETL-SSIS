@@ -1,0 +1,1634 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/8/2019 2:25:39 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-KSFBE82"
+  DTS:CreatorName="DESKTOP-KSFBE82\DEMEKE"
+  DTS:DTSID="{94B2283B-D574-4202-9BE2-A5DDDC685F7B}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="14.0.3026.27"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Transformation_MergeJoin"
+  DTS:PackageType="5"
+  DTS:VersionBuild="4"
+  DTS:VersionGUID="{3E798A17-9908-4F90-A4B7-8BB0FA34EA09}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-KSFBE82.BI_PRACTICE]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{A4DE3579-B381-46C8-B290-A691CBA81D8E}"
+      DTS:ObjectName="DESKTOP-KSFBE82.BI_PRACTICE">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=DESKTOP-KSFBE82;Initial Catalog=BI_PRACTICE;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-KSFBE82.Duna_ITschool]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{283A512F-13F4-4B06-ABF0-98FEC5CE9814}"
+      DTS:ObjectName="DESKTOP-KSFBE82.Duna_ITschool">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=DESKTOP-KSFBE82;Initial Catalog=Duna_ITschool;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task Merge Join Transformation"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{D1FF5A4F-5202-4DDD-B35C-66AEC331D469}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task Merge Join Transformation"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow Task Merge Join Transformation\Merge Join"
+              componentClassID="Microsoft.MergeJoin"
+              contactInfo="Merge Join;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Combine two sorted data flows into one using the FULL, LEFT, or INNER join. We recommend this transformation when data flows can be sorted at their sources."
+              name="Merge Join"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of join to perform."
+                  name="JoinType"
+                  typeConverter="JoinType">2</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the number of columns in the ordering key."
+                  name="NumKeyColumns">1</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the null values are treated as equal values."
+                  name="TreatNullsAsEqual">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Indicates the requested maximum buffers per input before blocking."
+                  name="MaxBuffersPerInput">5</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task Merge Join Transformation\Merge Join.Inputs[Merge Join Left Input]"
+                  hasSideEffects="true"
+                  name="Merge Join Left Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task Merge Join Transformation\Merge Join.Inputs[Merge Join Left Input].Columns[Department_Id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="Department_Id"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Data Flow Task Merge Join Transformation\Sort.Outputs[Sort Output].Columns[Department_Id]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task Merge Join Transformation\Merge Join.Inputs[Merge Join Left Input].Columns[Course_Id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="Course_Id"
+                      lineageId="Package\Data Flow Task Merge Join Transformation\Sort.Outputs[Sort Output].Columns[Course_Id]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task Merge Join Transformation\Merge Join.Inputs[Merge Join Left Input].Columns[CoorseName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="CoorseName"
+                      lineageId="Package\Data Flow Task Merge Join Transformation\Sort.Outputs[Sort Output].Columns[CoorseName]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task Merge Join Transformation\Merge Join.Inputs[Merge Join Left Input].Columns[Term]"
+                      cachedCodepage="1252"
+                      cachedDataType="text"
+                      cachedName="Term"
+                      lineageId="Package\Data Flow Task Merge Join Transformation\Sort.Outputs[Sort Output].Columns[Term]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task Merge Join Transformation\Merge Join.Inputs[Merge Join Left Input].Columns[Credit_Hr]"
+                      cachedDataType="i4"
+                      cachedName="Credit_Hr"
+                      lineageId="Package\Data Flow Task Merge Join Transformation\Sort.Outputs[Sort Output].Columns[Credit_Hr]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task Merge Join Transformation\Merge Join.Inputs[Merge Join Left Input].Columns[Instructor_Id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="Instructor_Id"
+                      lineageId="Package\Data Flow Task Merge Join Transformation\Sort.Outputs[Sort Output].Columns[Instructor_Id]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Data Flow Task Merge Join Transformation\Merge Join.Inputs[Merge Join Right Input]"
+                  hasSideEffects="true"
+                  name="Merge Join Right Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task Merge Join Transformation\Merge Join.Inputs[Merge Join Right Input].Columns[Department_Id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="Department_Id"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Data Flow Task Merge Join Transformation\Sort 1.Outputs[Sort Output].Columns[Department_Id]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task Merge Join Transformation\Merge Join.Inputs[Merge Join Right Input].Columns[Email]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Email"
+                      lineageId="Package\Data Flow Task Merge Join Transformation\Sort 1.Outputs[Sort Output].Columns[Email]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task Merge Join Transformation\Merge Join.Inputs[Merge Join Right Input].Columns[Phone]"
+                      cachedDataType="i4"
+                      cachedName="Phone"
+                      lineageId="Package\Data Flow Task Merge Join Transformation\Sort 1.Outputs[Sort Output].Columns[Phone]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task Merge Join Transformation\Merge Join.Inputs[Merge Join Right Input].Columns[DepName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="DepName"
+                      lineageId="Package\Data Flow Task Merge Join Transformation\Sort 1.Outputs[Sort Output].Columns[DepName]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task Merge Join Transformation\Merge Join.Outputs[Merge Join Output]"
+                  isSorted="true"
+                  name="Merge Join Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task Merge Join Transformation\Merge Join.Outputs[Merge Join Output].Columns[Department_Id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\Data Flow Task Merge Join Transformation\Merge Join.Outputs[Merge Join Output].Columns[Department_Id]"
+                      name="Department_Id"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Data Flow Task Merge Join Transformation\Merge Join.Inputs[Merge Join Right Input].Columns[Department_Id]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task Merge Join Transformation\Merge Join.Outputs[Merge Join Output].Columns[Course_Id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\Data Flow Task Merge Join Transformation\Merge Join.Outputs[Merge Join Output].Columns[Course_Id]"
+                      name="Course_Id">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Data Flow Task Merge Join Transformation\Merge Join.Inputs[Merge Join Left Input].Columns[Course_Id]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task Merge Join Transformation\Merge Join.Outputs[Merge Join Output].Columns[CoorseName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\Data Flow Task Merge Join Transformation\Merge Join.Outputs[Merge Join Output].Columns[CoorseName]"
+                      name="CoorseName">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Data Flow Task Merge Join Transformation\Merge Join.Inputs[Merge Join Left Input].Columns[CoorseName]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task Merge Join Transformation\Merge Join.Outputs[Merge Join Output].Columns[Term]"
+                      codePage="1252"
+                      dataType="text"
+                      lineageId="Package\Data Flow Task Merge Join Transformation\Merge Join.Outputs[Merge Join Output].Columns[Term]"
+                      name="Term">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Data Flow Task Merge Join Transformation\Merge Join.Inputs[Merge Join Left Input].Columns[Term]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task Merge Join Transformation\Merge Join.Outputs[Merge Join Output].Columns[Credit_Hr]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task Merge Join Transformation\Merge Join.Outputs[Merge Join Output].Columns[Credit_Hr]"
+                      name="Credit_Hr">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Data Flow Task Merge Join Transformation\Merge Join.Inputs[Merge Join Left Input].Columns[Credit_Hr]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task Merge Join Transformation\Merge Join.Outputs[Merge Join Output].Columns[Instructor_Id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\Data Flow Task Merge Join Transformation\Merge Join.Outputs[Merge Join Output].Columns[Instructor_Id]"
+                      name="Instructor_Id">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Data Flow Task Merge Join Transformation\Merge Join.Inputs[Merge Join Left Input].Columns[Instructor_Id]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task Merge Join Transformation\Merge Join.Outputs[Merge Join Output].Columns[Email]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Data Flow Task Merge Join Transformation\Merge Join.Outputs[Merge Join Output].Columns[Email]"
+                      name="Email">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Data Flow Task Merge Join Transformation\Merge Join.Inputs[Merge Join Right Input].Columns[Email]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task Merge Join Transformation\Merge Join.Outputs[Merge Join Output].Columns[Phone]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task Merge Join Transformation\Merge Join.Outputs[Merge Join Output].Columns[Phone]"
+                      name="Phone">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Data Flow Task Merge Join Transformation\Merge Join.Inputs[Merge Join Right Input].Columns[Phone]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task Merge Join Transformation\Merge Join.Outputs[Merge Join Output].Columns[DepName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      lineageId="Package\Data Flow Task Merge Join Transformation\Merge Join.Outputs[Merge Join Output].Columns[DepName]"
+                      name="DepName">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Data Flow Task Merge Join Transformation\Merge Join.Inputs[Merge Join Right Input].Columns[DepName]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task Merge Join Transformation\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[Department_Course_MergeJoin]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task Merge Join Transformation\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-KSFBE82.BI_PRACTICE]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-KSFBE82.BI_PRACTICE]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task Merge Join Transformation\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task Merge Join Transformation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Department_Id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="Department_Id"
+                      cachedSortKeyPosition="1"
+                      externalMetadataColumnId="Package\Data Flow Task Merge Join Transformation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Department_Id]"
+                      lineageId="Package\Data Flow Task Merge Join Transformation\Merge Join.Outputs[Merge Join Output].Columns[Department_Id]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task Merge Join Transformation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Course_Id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="Course_Id"
+                      externalMetadataColumnId="Package\Data Flow Task Merge Join Transformation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Course_Id]"
+                      lineageId="Package\Data Flow Task Merge Join Transformation\Merge Join.Outputs[Merge Join Output].Columns[Course_Id]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task Merge Join Transformation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CoorseName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="CoorseName"
+                      externalMetadataColumnId="Package\Data Flow Task Merge Join Transformation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CoorseName]"
+                      lineageId="Package\Data Flow Task Merge Join Transformation\Merge Join.Outputs[Merge Join Output].Columns[CoorseName]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task Merge Join Transformation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Term]"
+                      cachedCodepage="1252"
+                      cachedDataType="text"
+                      cachedName="Term"
+                      externalMetadataColumnId="Package\Data Flow Task Merge Join Transformation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Term]"
+                      lineageId="Package\Data Flow Task Merge Join Transformation\Merge Join.Outputs[Merge Join Output].Columns[Term]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task Merge Join Transformation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Credit_Hr]"
+                      cachedDataType="i4"
+                      cachedName="Credit_Hr"
+                      externalMetadataColumnId="Package\Data Flow Task Merge Join Transformation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Credit_Hr]"
+                      lineageId="Package\Data Flow Task Merge Join Transformation\Merge Join.Outputs[Merge Join Output].Columns[Credit_Hr]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task Merge Join Transformation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Instructor_Id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="Instructor_Id"
+                      externalMetadataColumnId="Package\Data Flow Task Merge Join Transformation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Instructor_Id]"
+                      lineageId="Package\Data Flow Task Merge Join Transformation\Merge Join.Outputs[Merge Join Output].Columns[Instructor_Id]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task Merge Join Transformation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Email]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Email"
+                      externalMetadataColumnId="Package\Data Flow Task Merge Join Transformation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Email]"
+                      lineageId="Package\Data Flow Task Merge Join Transformation\Merge Join.Outputs[Merge Join Output].Columns[Email]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task Merge Join Transformation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Phone]"
+                      cachedDataType="i4"
+                      cachedName="Phone"
+                      externalMetadataColumnId="Package\Data Flow Task Merge Join Transformation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Phone]"
+                      lineageId="Package\Data Flow Task Merge Join Transformation\Merge Join.Outputs[Merge Join Output].Columns[Phone]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task Merge Join Transformation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DepName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="DepName"
+                      externalMetadataColumnId="Package\Data Flow Task Merge Join Transformation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DepName]"
+                      lineageId="Package\Data Flow Task Merge Join Transformation\Merge Join.Outputs[Merge Join Output].Columns[DepName]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task Merge Join Transformation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Department_Id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="Department_Id" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task Merge Join Transformation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Course_Id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="Course_Id" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task Merge Join Transformation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CoorseName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="CoorseName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task Merge Join Transformation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Term]"
+                      codePage="1252"
+                      dataType="text"
+                      name="Term" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task Merge Join Transformation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Credit_Hr]"
+                      dataType="i4"
+                      name="Credit_Hr" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task Merge Join Transformation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Instructor_Id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="Instructor_Id" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task Merge Join Transformation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Email]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Email" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task Merge Join Transformation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Phone]"
+                      dataType="i4"
+                      name="Phone" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task Merge Join Transformation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DepName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="DepName" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task Merge Join Transformation\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task Merge Join Transformation\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task Merge Join Transformation\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task Merge Join Transformation\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task Merge Join Transformation\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task Merge Join Transformation\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task Merge Join Transformation\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Course]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task Merge Join Transformation\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-KSFBE82.Duna_ITschool]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-KSFBE82.Duna_ITschool]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task Merge Join Transformation\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task Merge Join Transformation\OLE DB Source.Outputs[OLE DB Source Output].Columns[Course_Id]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task Merge Join Transformation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Course_Id]"
+                      length="10"
+                      lineageId="Package\Data Flow Task Merge Join Transformation\OLE DB Source.Outputs[OLE DB Source Output].Columns[Course_Id]"
+                      name="Course_Id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task Merge Join Transformation\OLE DB Source.Outputs[OLE DB Source Output].Columns[CoorseName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task Merge Join Transformation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CoorseName]"
+                      length="20"
+                      lineageId="Package\Data Flow Task Merge Join Transformation\OLE DB Source.Outputs[OLE DB Source Output].Columns[CoorseName]"
+                      name="CoorseName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task Merge Join Transformation\OLE DB Source.Outputs[OLE DB Source Output].Columns[Department_Id]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task Merge Join Transformation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Department_Id]"
+                      length="20"
+                      lineageId="Package\Data Flow Task Merge Join Transformation\OLE DB Source.Outputs[OLE DB Source Output].Columns[Department_Id]"
+                      name="Department_Id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task Merge Join Transformation\OLE DB Source.Outputs[OLE DB Source Output].Columns[Term]"
+                      codePage="1252"
+                      dataType="text"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task Merge Join Transformation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Term]"
+                      lineageId="Package\Data Flow Task Merge Join Transformation\OLE DB Source.Outputs[OLE DB Source Output].Columns[Term]"
+                      name="Term"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task Merge Join Transformation\OLE DB Source.Outputs[OLE DB Source Output].Columns[Credit_Hr]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task Merge Join Transformation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Credit_Hr]"
+                      lineageId="Package\Data Flow Task Merge Join Transformation\OLE DB Source.Outputs[OLE DB Source Output].Columns[Credit_Hr]"
+                      name="Credit_Hr"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task Merge Join Transformation\OLE DB Source.Outputs[OLE DB Source Output].Columns[Instructor_Id]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task Merge Join Transformation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Instructor_Id]"
+                      length="10"
+                      lineageId="Package\Data Flow Task Merge Join Transformation\OLE DB Source.Outputs[OLE DB Source Output].Columns[Instructor_Id]"
+                      name="Instructor_Id"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task Merge Join Transformation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Course_Id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="Course_Id" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task Merge Join Transformation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CoorseName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="CoorseName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task Merge Join Transformation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Department_Id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="Department_Id" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task Merge Join Transformation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Term]"
+                      codePage="1252"
+                      dataType="text"
+                      name="Term" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task Merge Join Transformation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Credit_Hr]"
+                      dataType="i4"
+                      name="Credit_Hr" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task Merge Join Transformation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Instructor_Id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="Instructor_Id" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task Merge Join Transformation\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task Merge Join Transformation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Course_Id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\Data Flow Task Merge Join Transformation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Course_Id]"
+                      name="Course_Id" />
+                    <outputColumn
+                      refId="Package\Data Flow Task Merge Join Transformation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CoorseName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\Data Flow Task Merge Join Transformation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CoorseName]"
+                      name="CoorseName" />
+                    <outputColumn
+                      refId="Package\Data Flow Task Merge Join Transformation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Department_Id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\Data Flow Task Merge Join Transformation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Department_Id]"
+                      name="Department_Id" />
+                    <outputColumn
+                      refId="Package\Data Flow Task Merge Join Transformation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Term]"
+                      codePage="1252"
+                      dataType="text"
+                      lineageId="Package\Data Flow Task Merge Join Transformation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Term]"
+                      name="Term" />
+                    <outputColumn
+                      refId="Package\Data Flow Task Merge Join Transformation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Credit_Hr]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task Merge Join Transformation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Credit_Hr]"
+                      name="Credit_Hr" />
+                    <outputColumn
+                      refId="Package\Data Flow Task Merge Join Transformation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Instructor_Id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\Data Flow Task Merge Join Transformation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Instructor_Id]"
+                      name="Instructor_Id" />
+                    <outputColumn
+                      refId="Package\Data Flow Task Merge Join Transformation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task Merge Join Transformation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task Merge Join Transformation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task Merge Join Transformation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task Merge Join Transformation\OLE DB Source 1"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source 1"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Department]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task Merge Join Transformation\OLE DB Source 1.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-KSFBE82.Duna_ITschool]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-KSFBE82.Duna_ITschool]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task Merge Join Transformation\OLE DB Source 1.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task Merge Join Transformation\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Department_Id]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task Merge Join Transformation\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[Department_Id]"
+                      length="20"
+                      lineageId="Package\Data Flow Task Merge Join Transformation\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Department_Id]"
+                      name="Department_Id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task Merge Join Transformation\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[DepName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task Merge Join Transformation\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[DepName]"
+                      length="30"
+                      lineageId="Package\Data Flow Task Merge Join Transformation\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[DepName]"
+                      name="DepName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task Merge Join Transformation\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Phone]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task Merge Join Transformation\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[Phone]"
+                      lineageId="Package\Data Flow Task Merge Join Transformation\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Phone]"
+                      name="Phone"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task Merge Join Transformation\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Email]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task Merge Join Transformation\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[Email]"
+                      length="50"
+                      lineageId="Package\Data Flow Task Merge Join Transformation\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Email]"
+                      name="Email"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task Merge Join Transformation\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[Department_Id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="Department_Id" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task Merge Join Transformation\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[DepName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="DepName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task Merge Join Transformation\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[Phone]"
+                      dataType="i4"
+                      name="Phone" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task Merge Join Transformation\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[Email]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Email" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task Merge Join Transformation\OLE DB Source 1.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task Merge Join Transformation\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[Department_Id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\Data Flow Task Merge Join Transformation\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[Department_Id]"
+                      name="Department_Id" />
+                    <outputColumn
+                      refId="Package\Data Flow Task Merge Join Transformation\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[DepName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      lineageId="Package\Data Flow Task Merge Join Transformation\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[DepName]"
+                      name="DepName" />
+                    <outputColumn
+                      refId="Package\Data Flow Task Merge Join Transformation\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[Phone]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task Merge Join Transformation\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[Phone]"
+                      name="Phone" />
+                    <outputColumn
+                      refId="Package\Data Flow Task Merge Join Transformation\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[Email]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Data Flow Task Merge Join Transformation\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[Email]"
+                      name="Email" />
+                    <outputColumn
+                      refId="Package\Data Flow Task Merge Join Transformation\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task Merge Join Transformation\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task Merge Join Transformation\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task Merge Join Transformation\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task Merge Join Transformation\Sort"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Sort"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task Merge Join Transformation\Sort.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task Merge Join Transformation\Sort.Inputs[Sort Input].Columns[Course_Id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="Course_Id"
+                      lineageId="Package\Data Flow Task Merge Join Transformation\OLE DB Source.Outputs[OLE DB Source Output].Columns[Course_Id]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task Merge Join Transformation\Sort.Inputs[Sort Input].Columns[CoorseName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="CoorseName"
+                      lineageId="Package\Data Flow Task Merge Join Transformation\OLE DB Source.Outputs[OLE DB Source Output].Columns[CoorseName]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task Merge Join Transformation\Sort.Inputs[Sort Input].Columns[Department_Id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="Department_Id"
+                      lineageId="Package\Data Flow Task Merge Join Transformation\OLE DB Source.Outputs[OLE DB Source Output].Columns[Department_Id]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task Merge Join Transformation\Sort.Inputs[Sort Input].Columns[Term]"
+                      cachedCodepage="1252"
+                      cachedDataType="text"
+                      cachedName="Term"
+                      lineageId="Package\Data Flow Task Merge Join Transformation\OLE DB Source.Outputs[OLE DB Source Output].Columns[Term]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task Merge Join Transformation\Sort.Inputs[Sort Input].Columns[Credit_Hr]"
+                      cachedDataType="i4"
+                      cachedName="Credit_Hr"
+                      lineageId="Package\Data Flow Task Merge Join Transformation\OLE DB Source.Outputs[OLE DB Source Output].Columns[Credit_Hr]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task Merge Join Transformation\Sort.Inputs[Sort Input].Columns[Instructor_Id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="Instructor_Id"
+                      lineageId="Package\Data Flow Task Merge Join Transformation\OLE DB Source.Outputs[OLE DB Source Output].Columns[Instructor_Id]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task Merge Join Transformation\Sort.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task Merge Join Transformation\Sort.Outputs[Sort Output].Columns[Course_Id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\Data Flow Task Merge Join Transformation\Sort.Outputs[Sort Output].Columns[Course_Id]"
+                      name="Course_Id">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task Merge Join Transformation\OLE DB Source.Outputs[OLE DB Source Output].Columns[Course_Id]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task Merge Join Transformation\Sort.Outputs[Sort Output].Columns[CoorseName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\Data Flow Task Merge Join Transformation\Sort.Outputs[Sort Output].Columns[CoorseName]"
+                      name="CoorseName">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task Merge Join Transformation\OLE DB Source.Outputs[OLE DB Source Output].Columns[CoorseName]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task Merge Join Transformation\Sort.Outputs[Sort Output].Columns[Department_Id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\Data Flow Task Merge Join Transformation\Sort.Outputs[Sort Output].Columns[Department_Id]"
+                      name="Department_Id"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task Merge Join Transformation\OLE DB Source.Outputs[OLE DB Source Output].Columns[Department_Id]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task Merge Join Transformation\Sort.Outputs[Sort Output].Columns[Term]"
+                      codePage="1252"
+                      dataType="text"
+                      lineageId="Package\Data Flow Task Merge Join Transformation\Sort.Outputs[Sort Output].Columns[Term]"
+                      name="Term">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task Merge Join Transformation\OLE DB Source.Outputs[OLE DB Source Output].Columns[Term]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task Merge Join Transformation\Sort.Outputs[Sort Output].Columns[Credit_Hr]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task Merge Join Transformation\Sort.Outputs[Sort Output].Columns[Credit_Hr]"
+                      name="Credit_Hr">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task Merge Join Transformation\OLE DB Source.Outputs[OLE DB Source Output].Columns[Credit_Hr]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task Merge Join Transformation\Sort.Outputs[Sort Output].Columns[Instructor_Id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\Data Flow Task Merge Join Transformation\Sort.Outputs[Sort Output].Columns[Instructor_Id]"
+                      name="Instructor_Id">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task Merge Join Transformation\OLE DB Source.Outputs[OLE DB Source Output].Columns[Instructor_Id]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task Merge Join Transformation\Sort 1"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Sort 1"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task Merge Join Transformation\Sort 1.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task Merge Join Transformation\Sort 1.Inputs[Sort Input].Columns[Department_Id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="Department_Id"
+                      lineageId="Package\Data Flow Task Merge Join Transformation\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Department_Id]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task Merge Join Transformation\Sort 1.Inputs[Sort Input].Columns[DepName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="DepName"
+                      lineageId="Package\Data Flow Task Merge Join Transformation\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[DepName]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task Merge Join Transformation\Sort 1.Inputs[Sort Input].Columns[Phone]"
+                      cachedDataType="i4"
+                      cachedName="Phone"
+                      lineageId="Package\Data Flow Task Merge Join Transformation\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Phone]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task Merge Join Transformation\Sort 1.Inputs[Sort Input].Columns[Email]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Email"
+                      lineageId="Package\Data Flow Task Merge Join Transformation\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Email]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task Merge Join Transformation\Sort 1.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task Merge Join Transformation\Sort 1.Outputs[Sort Output].Columns[Department_Id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\Data Flow Task Merge Join Transformation\Sort 1.Outputs[Sort Output].Columns[Department_Id]"
+                      name="Department_Id"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task Merge Join Transformation\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Department_Id]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task Merge Join Transformation\Sort 1.Outputs[Sort Output].Columns[DepName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      lineageId="Package\Data Flow Task Merge Join Transformation\Sort 1.Outputs[Sort Output].Columns[DepName]"
+                      name="DepName">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task Merge Join Transformation\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[DepName]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task Merge Join Transformation\Sort 1.Outputs[Sort Output].Columns[Phone]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task Merge Join Transformation\Sort 1.Outputs[Sort Output].Columns[Phone]"
+                      name="Phone">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task Merge Join Transformation\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Phone]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task Merge Join Transformation\Sort 1.Outputs[Sort Output].Columns[Email]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Data Flow Task Merge Join Transformation\Sort 1.Outputs[Sort Output].Columns[Email]"
+                      name="Email">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task Merge Join Transformation\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Email]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow Task Merge Join Transformation.Paths[Merge Join Output]"
+              endId="Package\Data Flow Task Merge Join Transformation\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Merge Join Output"
+              startId="Package\Data Flow Task Merge Join Transformation\Merge Join.Outputs[Merge Join Output]" />
+            <path
+              refId="Package\Data Flow Task Merge Join Transformation.Paths[OLE DB Source Output]"
+              endId="Package\Data Flow Task Merge Join Transformation\Sort.Inputs[Sort Input]"
+              name="OLE DB Source Output"
+              startId="Package\Data Flow Task Merge Join Transformation\OLE DB Source.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Data Flow Task Merge Join Transformation.Paths[OLE DB Source Output1]"
+              endId="Package\Data Flow Task Merge Join Transformation\Sort 1.Inputs[Sort Input]"
+              name="OLE DB Source Output"
+              startId="Package\Data Flow Task Merge Join Transformation\OLE DB Source 1.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Data Flow Task Merge Join Transformation.Paths[Sort Output]"
+              endId="Package\Data Flow Task Merge Join Transformation\Merge Join.Inputs[Merge Join Left Input]"
+              name="Sort Output"
+              startId="Package\Data Flow Task Merge Join Transformation\Sort.Outputs[Sort Output]" />
+            <path
+              refId="Package\Data Flow Task Merge Join Transformation.Paths[Sort Output1]"
+              endId="Package\Data Flow Task Merge Join Transformation\Merge Join.Inputs[Merge Join Right Input]"
+              name="Sort Output"
+              startId="Package\Data Flow Task Merge Join Transformation\Sort 1.Outputs[Sort Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="281.6,42.4"
+          Id="Package\Data Flow Task Merge Join Transformation"
+          TopLeft="53.3333325386047,22.0999996048212" />
+        <AnnotationLayout
+          Text=" -combines data from different sources &#xA;(Source of same type or different type (heterogeneous)) &#xA;into single output or merged output&#xA;-It uses merge concept based on (Inner, Left and full) based on &#xA; specific, combining data on matching keys&#xA;-accepts only 2 sorted (compulsory) inputs and one output and one error output. &#xA;-Unlike Merge, Merge Join combines data depending on &#xA;matching keys or string name."
+          ParentId="Package"
+          FontInfo="{assembly:Null}"
+          Size="461.6,152"
+          Id="850e905c-d2e3-48dd-acbf-f892bdb6dff7"
+          TopLeft="12.9166664741933,70.6333320703109" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Data Flow Task Merge Join Transformation">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="108,42.4"
+          Id="Package\Data Flow Task Merge Join Transformation\Sort 1"
+          TopLeft="376.845232479806,77.9999986052513" />
+        <NodeLayout
+          Size="98.4,42.4"
+          Id="Package\Data Flow Task Merge Join Transformation\Sort"
+          TopLeft="59.9404752972935,88.1730142963595" />
+        <NodeLayout
+          Size="160,42.4"
+          Id="Package\Data Flow Task Merge Join Transformation\OLE DB Source 1"
+          TopLeft="414.166660495102,10.4619045748313" />
+        <NodeLayout
+          Size="150.4,42.4"
+          Id="Package\Data Flow Task Merge Join Transformation\OLE DB Source"
+          TopLeft="14.8214283505721,17.8285711097717" />
+        <NodeLayout
+          Size="172,41.6"
+          Id="Package\Data Flow Task Merge Join Transformation\OLE DB Destination"
+          TopLeft="176.190473565034,250.404757427176" />
+        <NodeLayout
+          Size="131.2,42.4"
+          Id="Package\Data Flow Task Merge Join Transformation\Merge Join"
+          TopLeft="208.571425463472,142.092060951259" />
+        <EdgeLayout
+          Id="Package\Data Flow Task Merge Join Transformation.Paths[Sort Output1]"
+          TopLeft="376.845232479806,99.3333319385846">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-36.9404736830011,64.0920623460082"
+              Start="0,0"
+              End="-29.4404736830011,64.0920623460082">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-14.4702368415005,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-14.4702368415005,0"
+                    Point2="-18.4702368415005,0"
+                    Point3="-18.4702368415005,4" />
+                  <mssgle:LineSegment
+                    End="-18.4702368415005,60.0920623460082" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-18.4702368415005,60.0920623460082"
+                    Point2="-18.4702368415005,64.0920623460082"
+                    Point3="-22.4702368415005,64.0920623460082" />
+                  <mssgle:LineSegment
+                    End="-29.4404736830011,64.0920623460082" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-26.4702368415005,-22,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task Merge Join Transformation.Paths[Sort Output]"
+          TopLeft="158.60714196396,109.506347629693">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="49.9642834995119,53.9190466549"
+              Start="0,0"
+              End="42.4642834995119,53.9190466549">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="20.9821417497559,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="20.9821417497559,0"
+                    Point2="24.9821417497559,0"
+                    Point3="24.9821417497559,4" />
+                  <mssgle:LineSegment
+                    End="24.9821417497559,49.9190466549" />
+                  <mssgle:CubicBezierSegment
+                    Point1="24.9821417497559,49.9190466549"
+                    Point2="24.9821417497559,53.9190466549"
+                    Point3="28.9821417497559,53.9190466549" />
+                  <mssgle:LineSegment
+                    End="42.4642834995119,53.9190466549" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="16.9821417497559,-22,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task Merge Join Transformation.Paths[OLE DB Source Output1]"
+          TopLeft="494.166660495102,53.128571241498">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-63.321428015296,24.8714273637533"
+              Start="0,0"
+              End="-63.321428015296,17.3714273637533">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,8.43571368187665" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,8.43571368187665"
+                    Point2="0,12.4357136818766"
+                    Point3="-4,12.4357136818766" />
+                  <mssgle:LineSegment
+                    End="-59.321428015296,12.4357136818766" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-59.321428015296,12.4357136818766"
+                    Point2="-63.321428015296,12.4357136818766"
+                    Point3="-63.321428015296,16.4357136818766" />
+                  <mssgle:LineSegment
+                    End="-63.321428015296,17.3714273637533" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task Merge Join Transformation.Paths[OLE DB Source Output]"
+          TopLeft="90.1547616839054,60.4952377764384">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="19.1190469467215,27.6777765199211"
+              Start="0,0"
+              End="19.1190469467215,20.1777765199211">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,9.83888825996057" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,9.83888825996057"
+                    Point2="0,13.8388882599606"
+                    Point3="4,13.8388882599606" />
+                  <mssgle:LineSegment
+                    End="15.1190469467215,13.8388882599606" />
+                  <mssgle:CubicBezierSegment
+                    Point1="15.1190469467215,13.8388882599606"
+                    Point2="19.1190469467215,13.8388882599606"
+                    Point3="19.1190469467215,17.8388882599606" />
+                  <mssgle:LineSegment
+                    End="19.1190469467215,20.1777765199211" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task Merge Join Transformation.Paths[Merge Join Output]"
+          TopLeft="274.238092130139,184.758727617926">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-12.0476185651052,65.6460298092498"
+              Start="0,0"
+              End="-12.0476185651052,58.1460298092498">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.8230149046249" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,28.8230149046249"
+                    Point2="0,32.8230149046249"
+                    Point3="-4,32.8230149046249" />
+                  <mssgle:LineSegment
+                    End="-8.04761856510515,32.8230149046249" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-8.04761856510515,32.8230149046249"
+                    Point2="-12.0476185651052,32.8230149046249"
+                    Point3="-12.0476185651052,36.8230149046249" />
+                  <mssgle:LineSegment
+                    End="-12.0476185651052,58.1460298092498" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-14.0238092825526,37.8230149046249,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task Merge Join Transformation\OLE DB Source 1">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task Merge Join Transformation\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task Merge Join Transformation\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

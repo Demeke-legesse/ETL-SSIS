@@ -1,0 +1,1166 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/6/2019 10:51:37 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-KSFBE82"
+  DTS:CreatorName="DESKTOP-KSFBE82\DEMEKE"
+  DTS:DTSID="{8B7C012A-3661-425F-82EC-CFBF3C08F74A}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="14.0.3026.27"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="ADO NET_Destination"
+  DTS:PackageType="5"
+  DTS:VersionBuild="7"
+  DTS:VersionGUID="{9D949D7B-BC94-4DF6-91A8-47BF1FD427E3}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-KSFBE82.AdventureWorks2012DW]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{406AB288-58CF-485D-AD74-E6EEEEC9CEE9}"
+      DTS:ObjectName="DESKTOP-KSFBE82.AdventureWorks2012DW">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=DESKTOP-KSFBE82;Initial Catalog=AdventureWorks2012DW;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-KSFBE82.BI_PRACTICE1]"
+      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{64119108-13C8-4B20-854E-87F990CDDE94}"
+      DTS:ObjectName="DESKTOP-KSFBE82.BI_PRACTICE1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=DESKTOP-KSFBE82;Initial Catalog=BI_PRACTICE;Integrated Security=True;Application Name=SSIS-ADO NET_Destination-{64119108-13C8-4B20-854E-87F990CDDE94}DESKTOP-KSFBE82.BI_PRACTICE1;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\EST_Truncate SSIS ADO NET Destination"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{883ee3c5-84fe-4b3c-a58f-0c8a62c116eb}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="EST_Truncate SSIS ADO NET Destination"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{4CF78D36-5597-40AE-8C0F-A40699C132D4}"
+          SQLTask:SqlStatementSource="TRUNCATE Table [dbo].[SSIS ADO NET Destination]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SSIS ADO NET Destination"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{7C1C260C-B73A-4DB4-91C9-B7E1A657B891}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SSIS ADO NET Destination"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\SSIS ADO NET Destination\ADO NET Destination"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination."
+              name="ADO NET Destination"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="The Destination database table name."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"dbo"."SSIS ADO NET Destination"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the number of rows per batch. The default is 0 which uses the same size as SSIS internal buffer. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out. A value of 0 indicates infinite time-out. "
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether to use the SqlBulkCopy interface to improve the performance of bulk insert operations. Only certain providers support this interface."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\SSIS ADO NET Destination\ADO NET Destination.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-KSFBE82.BI_PRACTICE1]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-KSFBE82.BI_PRACTICE1]"
+                  description="Managed connection manager"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\SSIS ADO NET Destination\ADO NET Destination.Inputs[ADO NET Destination Input]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="ADO NET Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\SSIS ADO NET Destination\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[ProductKey]"
+                      cachedDataType="i4"
+                      cachedName="ProductKey"
+                      externalMetadataColumnId="Package\SSIS ADO NET Destination\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[ProductKey]"
+                      lineageId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].Columns[ProductKey]" />
+                    <inputColumn
+                      refId="Package\SSIS ADO NET Destination\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[OrderDateKey]"
+                      cachedDataType="i4"
+                      cachedName="OrderDateKey"
+                      externalMetadataColumnId="Package\SSIS ADO NET Destination\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[OrderDateKey]"
+                      lineageId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].Columns[OrderDateKey]" />
+                    <inputColumn
+                      refId="Package\SSIS ADO NET Destination\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[DueDateKey]"
+                      cachedDataType="i4"
+                      cachedName="DueDateKey"
+                      externalMetadataColumnId="Package\SSIS ADO NET Destination\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[DueDateKey]"
+                      lineageId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].Columns[DueDateKey]" />
+                    <inputColumn
+                      refId="Package\SSIS ADO NET Destination\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[ShipDateKey]"
+                      cachedDataType="i4"
+                      cachedName="ShipDateKey"
+                      externalMetadataColumnId="Package\SSIS ADO NET Destination\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[ShipDateKey]"
+                      lineageId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].Columns[ShipDateKey]" />
+                    <inputColumn
+                      refId="Package\SSIS ADO NET Destination\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[CustomerKey]"
+                      cachedDataType="i4"
+                      cachedName="CustomerKey"
+                      externalMetadataColumnId="Package\SSIS ADO NET Destination\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[CustomerKey]"
+                      lineageId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].Columns[CustomerKey]" />
+                    <inputColumn
+                      refId="Package\SSIS ADO NET Destination\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[PromotionKey]"
+                      cachedDataType="i4"
+                      cachedName="PromotionKey"
+                      externalMetadataColumnId="Package\SSIS ADO NET Destination\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[PromotionKey]"
+                      lineageId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].Columns[PromotionKey]" />
+                    <inputColumn
+                      refId="Package\SSIS ADO NET Destination\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[CurrencyKey]"
+                      cachedDataType="i4"
+                      cachedName="CurrencyKey"
+                      externalMetadataColumnId="Package\SSIS ADO NET Destination\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[CurrencyKey]"
+                      lineageId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].Columns[CurrencyKey]" />
+                    <inputColumn
+                      refId="Package\SSIS ADO NET Destination\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[SalesTerritoryKey]"
+                      cachedDataType="i4"
+                      cachedName="SalesTerritoryKey"
+                      externalMetadataColumnId="Package\SSIS ADO NET Destination\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[SalesTerritoryKey]"
+                      lineageId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesTerritoryKey]" />
+                    <inputColumn
+                      refId="Package\SSIS ADO NET Destination\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[SalesOrderNumber]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="SalesOrderNumber"
+                      externalMetadataColumnId="Package\SSIS ADO NET Destination\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[SalesOrderNumber]"
+                      lineageId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesOrderNumber]" />
+                    <inputColumn
+                      refId="Package\SSIS ADO NET Destination\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[SalesOrderLineNumber]"
+                      cachedDataType="ui1"
+                      cachedName="SalesOrderLineNumber"
+                      externalMetadataColumnId="Package\SSIS ADO NET Destination\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[SalesOrderLineNumber]"
+                      lineageId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesOrderLineNumber]" />
+                    <inputColumn
+                      refId="Package\SSIS ADO NET Destination\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[RevisionNumber]"
+                      cachedDataType="ui1"
+                      cachedName="RevisionNumber"
+                      externalMetadataColumnId="Package\SSIS ADO NET Destination\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[RevisionNumber]"
+                      lineageId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].Columns[RevisionNumber]" />
+                    <inputColumn
+                      refId="Package\SSIS ADO NET Destination\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[OrderQuantity]"
+                      cachedDataType="i2"
+                      cachedName="OrderQuantity"
+                      externalMetadataColumnId="Package\SSIS ADO NET Destination\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[OrderQuantity]"
+                      lineageId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].Columns[OrderQuantity]" />
+                    <inputColumn
+                      refId="Package\SSIS ADO NET Destination\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[UnitPrice]"
+                      cachedDataType="cy"
+                      cachedName="UnitPrice"
+                      externalMetadataColumnId="Package\SSIS ADO NET Destination\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[UnitPrice]"
+                      lineageId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].Columns[UnitPrice]" />
+                    <inputColumn
+                      refId="Package\SSIS ADO NET Destination\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[ExtendedAmount]"
+                      cachedDataType="cy"
+                      cachedName="ExtendedAmount"
+                      externalMetadataColumnId="Package\SSIS ADO NET Destination\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[ExtendedAmount]"
+                      lineageId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].Columns[ExtendedAmount]" />
+                    <inputColumn
+                      refId="Package\SSIS ADO NET Destination\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[UnitPriceDiscountPct]"
+                      cachedDataType="r8"
+                      cachedName="UnitPriceDiscountPct"
+                      externalMetadataColumnId="Package\SSIS ADO NET Destination\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[UnitPriceDiscountPct]"
+                      lineageId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].Columns[UnitPriceDiscountPct]" />
+                    <inputColumn
+                      refId="Package\SSIS ADO NET Destination\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[DiscountAmount]"
+                      cachedDataType="r8"
+                      cachedName="DiscountAmount"
+                      externalMetadataColumnId="Package\SSIS ADO NET Destination\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[DiscountAmount]"
+                      lineageId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].Columns[DiscountAmount]" />
+                    <inputColumn
+                      refId="Package\SSIS ADO NET Destination\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[ProductStandardCost]"
+                      cachedDataType="cy"
+                      cachedName="ProductStandardCost"
+                      externalMetadataColumnId="Package\SSIS ADO NET Destination\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[ProductStandardCost]"
+                      lineageId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].Columns[ProductStandardCost]" />
+                    <inputColumn
+                      refId="Package\SSIS ADO NET Destination\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[TotalProductCost]"
+                      cachedDataType="cy"
+                      cachedName="TotalProductCost"
+                      externalMetadataColumnId="Package\SSIS ADO NET Destination\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[TotalProductCost]"
+                      lineageId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].Columns[TotalProductCost]" />
+                    <inputColumn
+                      refId="Package\SSIS ADO NET Destination\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[SalesAmount]"
+                      cachedDataType="cy"
+                      cachedName="SalesAmount"
+                      externalMetadataColumnId="Package\SSIS ADO NET Destination\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[SalesAmount]"
+                      lineageId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesAmount]" />
+                    <inputColumn
+                      refId="Package\SSIS ADO NET Destination\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[TaxAmt]"
+                      cachedDataType="cy"
+                      cachedName="TaxAmt"
+                      externalMetadataColumnId="Package\SSIS ADO NET Destination\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[TaxAmt]"
+                      lineageId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].Columns[TaxAmt]" />
+                    <inputColumn
+                      refId="Package\SSIS ADO NET Destination\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[Freight]"
+                      cachedDataType="cy"
+                      cachedName="Freight"
+                      externalMetadataColumnId="Package\SSIS ADO NET Destination\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[Freight]"
+                      lineageId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].Columns[Freight]" />
+                    <inputColumn
+                      refId="Package\SSIS ADO NET Destination\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[CarrierTrackingNumber]"
+                      cachedDataType="wstr"
+                      cachedLength="25"
+                      cachedName="CarrierTrackingNumber"
+                      externalMetadataColumnId="Package\SSIS ADO NET Destination\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[CarrierTrackingNumber]"
+                      lineageId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].Columns[CarrierTrackingNumber]" />
+                    <inputColumn
+                      refId="Package\SSIS ADO NET Destination\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[CustomerPONumber]"
+                      cachedDataType="wstr"
+                      cachedLength="25"
+                      cachedName="CustomerPONumber"
+                      externalMetadataColumnId="Package\SSIS ADO NET Destination\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[CustomerPONumber]"
+                      lineageId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].Columns[CustomerPONumber]" />
+                    <inputColumn
+                      refId="Package\SSIS ADO NET Destination\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[OrderDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="OrderDate"
+                      externalMetadataColumnId="Package\SSIS ADO NET Destination\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[OrderDate]"
+                      lineageId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].Columns[OrderDate]" />
+                    <inputColumn
+                      refId="Package\SSIS ADO NET Destination\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[DueDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="DueDate"
+                      externalMetadataColumnId="Package\SSIS ADO NET Destination\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[DueDate]"
+                      lineageId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].Columns[DueDate]" />
+                    <inputColumn
+                      refId="Package\SSIS ADO NET Destination\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[ShipDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="ShipDate"
+                      externalMetadataColumnId="Package\SSIS ADO NET Destination\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[ShipDate]"
+                      lineageId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].Columns[ShipDate]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\SSIS ADO NET Destination\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[ProductKey]"
+                      dataType="i4"
+                      name="ProductKey" />
+                    <externalMetadataColumn
+                      refId="Package\SSIS ADO NET Destination\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[OrderDateKey]"
+                      dataType="i4"
+                      name="OrderDateKey" />
+                    <externalMetadataColumn
+                      refId="Package\SSIS ADO NET Destination\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[DueDateKey]"
+                      dataType="i4"
+                      name="DueDateKey" />
+                    <externalMetadataColumn
+                      refId="Package\SSIS ADO NET Destination\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[ShipDateKey]"
+                      dataType="i4"
+                      name="ShipDateKey" />
+                    <externalMetadataColumn
+                      refId="Package\SSIS ADO NET Destination\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[CustomerKey]"
+                      dataType="i4"
+                      name="CustomerKey" />
+                    <externalMetadataColumn
+                      refId="Package\SSIS ADO NET Destination\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[PromotionKey]"
+                      dataType="i4"
+                      name="PromotionKey" />
+                    <externalMetadataColumn
+                      refId="Package\SSIS ADO NET Destination\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[CurrencyKey]"
+                      dataType="i4"
+                      name="CurrencyKey" />
+                    <externalMetadataColumn
+                      refId="Package\SSIS ADO NET Destination\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[SalesTerritoryKey]"
+                      dataType="i4"
+                      name="SalesTerritoryKey" />
+                    <externalMetadataColumn
+                      refId="Package\SSIS ADO NET Destination\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[SalesOrderNumber]"
+                      dataType="wstr"
+                      length="20"
+                      name="SalesOrderNumber" />
+                    <externalMetadataColumn
+                      refId="Package\SSIS ADO NET Destination\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[SalesOrderLineNumber]"
+                      dataType="ui1"
+                      name="SalesOrderLineNumber" />
+                    <externalMetadataColumn
+                      refId="Package\SSIS ADO NET Destination\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[RevisionNumber]"
+                      dataType="ui1"
+                      name="RevisionNumber" />
+                    <externalMetadataColumn
+                      refId="Package\SSIS ADO NET Destination\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[OrderQuantity]"
+                      dataType="i2"
+                      name="OrderQuantity" />
+                    <externalMetadataColumn
+                      refId="Package\SSIS ADO NET Destination\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[UnitPrice]"
+                      dataType="numeric"
+                      name="UnitPrice"
+                      precision="19"
+                      scale="255" />
+                    <externalMetadataColumn
+                      refId="Package\SSIS ADO NET Destination\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[ExtendedAmount]"
+                      dataType="numeric"
+                      name="ExtendedAmount"
+                      precision="19"
+                      scale="255" />
+                    <externalMetadataColumn
+                      refId="Package\SSIS ADO NET Destination\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[UnitPriceDiscountPct]"
+                      dataType="r8"
+                      name="UnitPriceDiscountPct" />
+                    <externalMetadataColumn
+                      refId="Package\SSIS ADO NET Destination\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[DiscountAmount]"
+                      dataType="r8"
+                      name="DiscountAmount" />
+                    <externalMetadataColumn
+                      refId="Package\SSIS ADO NET Destination\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[ProductStandardCost]"
+                      dataType="numeric"
+                      name="ProductStandardCost"
+                      precision="19"
+                      scale="255" />
+                    <externalMetadataColumn
+                      refId="Package\SSIS ADO NET Destination\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[TotalProductCost]"
+                      dataType="numeric"
+                      name="TotalProductCost"
+                      precision="19"
+                      scale="255" />
+                    <externalMetadataColumn
+                      refId="Package\SSIS ADO NET Destination\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[SalesAmount]"
+                      dataType="numeric"
+                      name="SalesAmount"
+                      precision="19"
+                      scale="255" />
+                    <externalMetadataColumn
+                      refId="Package\SSIS ADO NET Destination\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[TaxAmt]"
+                      dataType="numeric"
+                      name="TaxAmt"
+                      precision="19"
+                      scale="255" />
+                    <externalMetadataColumn
+                      refId="Package\SSIS ADO NET Destination\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[Freight]"
+                      dataType="numeric"
+                      name="Freight"
+                      precision="19"
+                      scale="255" />
+                    <externalMetadataColumn
+                      refId="Package\SSIS ADO NET Destination\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[CarrierTrackingNumber]"
+                      dataType="wstr"
+                      length="25"
+                      name="CarrierTrackingNumber" />
+                    <externalMetadataColumn
+                      refId="Package\SSIS ADO NET Destination\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[CustomerPONumber]"
+                      dataType="wstr"
+                      length="25"
+                      name="CustomerPONumber" />
+                    <externalMetadataColumn
+                      refId="Package\SSIS ADO NET Destination\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[OrderDate]"
+                      dataType="dbTimeStamp"
+                      name="OrderDate" />
+                    <externalMetadataColumn
+                      refId="Package\SSIS ADO NET Destination\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[DueDate]"
+                      dataType="dbTimeStamp"
+                      name="DueDate" />
+                    <externalMetadataColumn
+                      refId="Package\SSIS ADO NET Destination\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[ShipDate]"
+                      dataType="dbTimeStamp"
+                      name="ShipDate" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\SSIS ADO NET Destination\ADO NET Destination.Outputs[ADO NET Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="ADO NET Destination Error Output"
+                  synchronousInputId="Package\SSIS ADO NET Destination\ADO NET Destination.Inputs[ADO NET Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\SSIS ADO NET Destination\ADO NET Destination.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\SSIS ADO NET Destination\ADO NET Destination.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\SSIS ADO NET Destination\ADO NET Destination.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\SSIS ADO NET Destination\ADO NET Destination.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\SSIS ADO NET Destination\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[FactInternetSales]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">USE AdventureWorksDW2012
+GO
+SELECT PROD.[EnglishProductName]
+     ,PROD.[Color]
+     ,[SalesOrderNumber]
+     ,[UnitPrice]
+     ,[ExtendedAmount]
+     ,[ProductStandardCost]
+     ,[TotalProductCost]
+     ,[SalesAmount]
+     ,[TaxAmt]
+     ,[Freight]
+FROM [FactInternetSales]
+INNER JOIN
+[DimProduct] AS PROD ON
+  [FactInternetSales].[ProductKey] = PROD.[ProductKey]</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\SSIS ADO NET Destination\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-KSFBE82.AdventureWorks2012DW]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-KSFBE82.AdventureWorks2012DW]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].Columns[ProductKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ProductKey]"
+                      lineageId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].Columns[ProductKey]"
+                      name="ProductKey"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].Columns[OrderDateKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OrderDateKey]"
+                      lineageId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].Columns[OrderDateKey]"
+                      name="OrderDateKey"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].Columns[DueDateKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DueDateKey]"
+                      lineageId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].Columns[DueDateKey]"
+                      name="DueDateKey"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].Columns[ShipDateKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ShipDateKey]"
+                      lineageId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].Columns[ShipDateKey]"
+                      name="ShipDateKey"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].Columns[CustomerKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CustomerKey]"
+                      lineageId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].Columns[CustomerKey]"
+                      name="CustomerKey"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].Columns[PromotionKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PromotionKey]"
+                      lineageId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].Columns[PromotionKey]"
+                      name="PromotionKey"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].Columns[CurrencyKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CurrencyKey]"
+                      lineageId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].Columns[CurrencyKey]"
+                      name="CurrencyKey"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesTerritoryKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SalesTerritoryKey]"
+                      lineageId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesTerritoryKey]"
+                      name="SalesTerritoryKey"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesOrderNumber]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SalesOrderNumber]"
+                      length="20"
+                      lineageId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesOrderNumber]"
+                      name="SalesOrderNumber"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesOrderLineNumber]"
+                      dataType="ui1"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SalesOrderLineNumber]"
+                      lineageId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesOrderLineNumber]"
+                      name="SalesOrderLineNumber"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].Columns[RevisionNumber]"
+                      dataType="ui1"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RevisionNumber]"
+                      lineageId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].Columns[RevisionNumber]"
+                      name="RevisionNumber"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].Columns[OrderQuantity]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OrderQuantity]"
+                      lineageId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].Columns[OrderQuantity]"
+                      name="OrderQuantity"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].Columns[UnitPrice]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[UnitPrice]"
+                      lineageId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].Columns[UnitPrice]"
+                      name="UnitPrice"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].Columns[ExtendedAmount]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ExtendedAmount]"
+                      lineageId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].Columns[ExtendedAmount]"
+                      name="ExtendedAmount"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].Columns[UnitPriceDiscountPct]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[UnitPriceDiscountPct]"
+                      lineageId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].Columns[UnitPriceDiscountPct]"
+                      name="UnitPriceDiscountPct"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].Columns[DiscountAmount]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DiscountAmount]"
+                      lineageId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].Columns[DiscountAmount]"
+                      name="DiscountAmount"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].Columns[ProductStandardCost]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ProductStandardCost]"
+                      lineageId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].Columns[ProductStandardCost]"
+                      name="ProductStandardCost"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].Columns[TotalProductCost]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TotalProductCost]"
+                      lineageId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].Columns[TotalProductCost]"
+                      name="TotalProductCost"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesAmount]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SalesAmount]"
+                      lineageId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesAmount]"
+                      name="SalesAmount"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].Columns[TaxAmt]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TaxAmt]"
+                      lineageId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].Columns[TaxAmt]"
+                      name="TaxAmt"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].Columns[Freight]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Freight]"
+                      lineageId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].Columns[Freight]"
+                      name="Freight"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].Columns[CarrierTrackingNumber]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CarrierTrackingNumber]"
+                      length="25"
+                      lineageId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].Columns[CarrierTrackingNumber]"
+                      name="CarrierTrackingNumber"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].Columns[CustomerPONumber]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CustomerPONumber]"
+                      length="25"
+                      lineageId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].Columns[CustomerPONumber]"
+                      name="CustomerPONumber"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].Columns[OrderDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OrderDate]"
+                      lineageId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].Columns[OrderDate]"
+                      name="OrderDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].Columns[DueDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DueDate]"
+                      lineageId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].Columns[DueDate]"
+                      name="DueDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].Columns[ShipDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ShipDate]"
+                      lineageId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].Columns[ShipDate]"
+                      name="ShipDate"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ProductKey]"
+                      dataType="i4"
+                      name="ProductKey" />
+                    <externalMetadataColumn
+                      refId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OrderDateKey]"
+                      dataType="i4"
+                      name="OrderDateKey" />
+                    <externalMetadataColumn
+                      refId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DueDateKey]"
+                      dataType="i4"
+                      name="DueDateKey" />
+                    <externalMetadataColumn
+                      refId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ShipDateKey]"
+                      dataType="i4"
+                      name="ShipDateKey" />
+                    <externalMetadataColumn
+                      refId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CustomerKey]"
+                      dataType="i4"
+                      name="CustomerKey" />
+                    <externalMetadataColumn
+                      refId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PromotionKey]"
+                      dataType="i4"
+                      name="PromotionKey" />
+                    <externalMetadataColumn
+                      refId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CurrencyKey]"
+                      dataType="i4"
+                      name="CurrencyKey" />
+                    <externalMetadataColumn
+                      refId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SalesTerritoryKey]"
+                      dataType="i4"
+                      name="SalesTerritoryKey" />
+                    <externalMetadataColumn
+                      refId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SalesOrderNumber]"
+                      dataType="wstr"
+                      length="20"
+                      name="SalesOrderNumber" />
+                    <externalMetadataColumn
+                      refId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SalesOrderLineNumber]"
+                      dataType="ui1"
+                      name="SalesOrderLineNumber" />
+                    <externalMetadataColumn
+                      refId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RevisionNumber]"
+                      dataType="ui1"
+                      name="RevisionNumber" />
+                    <externalMetadataColumn
+                      refId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OrderQuantity]"
+                      dataType="i2"
+                      name="OrderQuantity" />
+                    <externalMetadataColumn
+                      refId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[UnitPrice]"
+                      dataType="cy"
+                      name="UnitPrice" />
+                    <externalMetadataColumn
+                      refId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ExtendedAmount]"
+                      dataType="cy"
+                      name="ExtendedAmount" />
+                    <externalMetadataColumn
+                      refId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[UnitPriceDiscountPct]"
+                      dataType="r8"
+                      name="UnitPriceDiscountPct" />
+                    <externalMetadataColumn
+                      refId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DiscountAmount]"
+                      dataType="r8"
+                      name="DiscountAmount" />
+                    <externalMetadataColumn
+                      refId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ProductStandardCost]"
+                      dataType="cy"
+                      name="ProductStandardCost" />
+                    <externalMetadataColumn
+                      refId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TotalProductCost]"
+                      dataType="cy"
+                      name="TotalProductCost" />
+                    <externalMetadataColumn
+                      refId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SalesAmount]"
+                      dataType="cy"
+                      name="SalesAmount" />
+                    <externalMetadataColumn
+                      refId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TaxAmt]"
+                      dataType="cy"
+                      name="TaxAmt" />
+                    <externalMetadataColumn
+                      refId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Freight]"
+                      dataType="cy"
+                      name="Freight" />
+                    <externalMetadataColumn
+                      refId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CarrierTrackingNumber]"
+                      dataType="wstr"
+                      length="25"
+                      name="CarrierTrackingNumber" />
+                    <externalMetadataColumn
+                      refId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CustomerPONumber]"
+                      dataType="wstr"
+                      length="25"
+                      name="CustomerPONumber" />
+                    <externalMetadataColumn
+                      refId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OrderDate]"
+                      dataType="dbTimeStamp"
+                      name="OrderDate" />
+                    <externalMetadataColumn
+                      refId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DueDate]"
+                      dataType="dbTimeStamp"
+                      name="DueDate" />
+                    <externalMetadataColumn
+                      refId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ShipDate]"
+                      dataType="dbTimeStamp"
+                      name="ShipDate" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ProductKey]"
+                      dataType="i4"
+                      lineageId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ProductKey]"
+                      name="ProductKey" />
+                    <outputColumn
+                      refId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OrderDateKey]"
+                      dataType="i4"
+                      lineageId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OrderDateKey]"
+                      name="OrderDateKey" />
+                    <outputColumn
+                      refId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DueDateKey]"
+                      dataType="i4"
+                      lineageId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DueDateKey]"
+                      name="DueDateKey" />
+                    <outputColumn
+                      refId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ShipDateKey]"
+                      dataType="i4"
+                      lineageId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ShipDateKey]"
+                      name="ShipDateKey" />
+                    <outputColumn
+                      refId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CustomerKey]"
+                      dataType="i4"
+                      lineageId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CustomerKey]"
+                      name="CustomerKey" />
+                    <outputColumn
+                      refId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PromotionKey]"
+                      dataType="i4"
+                      lineageId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PromotionKey]"
+                      name="PromotionKey" />
+                    <outputColumn
+                      refId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CurrencyKey]"
+                      dataType="i4"
+                      lineageId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CurrencyKey]"
+                      name="CurrencyKey" />
+                    <outputColumn
+                      refId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SalesTerritoryKey]"
+                      dataType="i4"
+                      lineageId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SalesTerritoryKey]"
+                      name="SalesTerritoryKey" />
+                    <outputColumn
+                      refId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SalesOrderNumber]"
+                      dataType="wstr"
+                      length="20"
+                      lineageId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SalesOrderNumber]"
+                      name="SalesOrderNumber" />
+                    <outputColumn
+                      refId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SalesOrderLineNumber]"
+                      dataType="ui1"
+                      lineageId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SalesOrderLineNumber]"
+                      name="SalesOrderLineNumber" />
+                    <outputColumn
+                      refId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RevisionNumber]"
+                      dataType="ui1"
+                      lineageId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RevisionNumber]"
+                      name="RevisionNumber" />
+                    <outputColumn
+                      refId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OrderQuantity]"
+                      dataType="i2"
+                      lineageId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OrderQuantity]"
+                      name="OrderQuantity" />
+                    <outputColumn
+                      refId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[UnitPrice]"
+                      dataType="cy"
+                      lineageId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[UnitPrice]"
+                      name="UnitPrice" />
+                    <outputColumn
+                      refId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ExtendedAmount]"
+                      dataType="cy"
+                      lineageId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ExtendedAmount]"
+                      name="ExtendedAmount" />
+                    <outputColumn
+                      refId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[UnitPriceDiscountPct]"
+                      dataType="r8"
+                      lineageId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[UnitPriceDiscountPct]"
+                      name="UnitPriceDiscountPct" />
+                    <outputColumn
+                      refId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DiscountAmount]"
+                      dataType="r8"
+                      lineageId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DiscountAmount]"
+                      name="DiscountAmount" />
+                    <outputColumn
+                      refId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ProductStandardCost]"
+                      dataType="cy"
+                      lineageId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ProductStandardCost]"
+                      name="ProductStandardCost" />
+                    <outputColumn
+                      refId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TotalProductCost]"
+                      dataType="cy"
+                      lineageId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TotalProductCost]"
+                      name="TotalProductCost" />
+                    <outputColumn
+                      refId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SalesAmount]"
+                      dataType="cy"
+                      lineageId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SalesAmount]"
+                      name="SalesAmount" />
+                    <outputColumn
+                      refId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TaxAmt]"
+                      dataType="cy"
+                      lineageId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TaxAmt]"
+                      name="TaxAmt" />
+                    <outputColumn
+                      refId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Freight]"
+                      dataType="cy"
+                      lineageId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Freight]"
+                      name="Freight" />
+                    <outputColumn
+                      refId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CarrierTrackingNumber]"
+                      dataType="wstr"
+                      length="25"
+                      lineageId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CarrierTrackingNumber]"
+                      name="CarrierTrackingNumber" />
+                    <outputColumn
+                      refId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CustomerPONumber]"
+                      dataType="wstr"
+                      length="25"
+                      lineageId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CustomerPONumber]"
+                      name="CustomerPONumber" />
+                    <outputColumn
+                      refId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OrderDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OrderDate]"
+                      name="OrderDate" />
+                    <outputColumn
+                      refId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DueDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DueDate]"
+                      name="DueDate" />
+                    <outputColumn
+                      refId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ShipDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ShipDate]"
+                      name="ShipDate" />
+                    <outputColumn
+                      refId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\SSIS ADO NET Destination.Paths[OLE DB Source Output]"
+              endId="Package\SSIS ADO NET Destination\ADO NET Destination.Inputs[ADO NET Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\SSIS ADO NET Destination\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{E6F69B28-A1D9-42EE-8292-07CDF8E5904A}"
+      DTS:From="Package\EST_Truncate SSIS ADO NET Destination"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\SSIS ADO NET Destination" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="204,41.6"
+          Id="Package\SSIS ADO NET Destination"
+          TopLeft="162.095239365587,157.75882478793" />
+        <NodeLayout
+          Size="272.8,41.6"
+          Id="Package\EST_Truncate SSIS ADO NET Destination"
+          TopLeft="139.428573803026,46.4941182991213" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="275.828573803026,88.0941182991213">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-11.7333344374384,69.6647064888087"
+              Start="0,0"
+              End="-11.7333344374384,62.1647064888087">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.8323532444043" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,30.8323532444043"
+                    Point2="0,34.8323532444043"
+                    Point3="-4,34.8323532444043" />
+                  <mssgle:LineSegment
+                    End="-7.73333443743837,34.8323532444043" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-7.73333443743837,34.8323532444043"
+                    Point2="-11.7333344374384,34.8323532444043"
+                    Point3="-11.7333344374384,38.8323532444043" />
+                  <mssgle:LineSegment
+                    End="-11.7333344374384,62.1647064888087" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\SSIS ADO NET Destination">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="150.4,42.4"
+          Id="Package\SSIS ADO NET Destination\OLE DB Source"
+          TopLeft="70.4166656173766,17.3333330233892" />
+        <NodeLayout
+          Size="180,42.4"
+          Id="Package\SSIS ADO NET Destination\ADO NET Destination"
+          TopLeft="157.083330992609,118.733331210216" />
+        <EdgeLayout
+          Id="Package\SSIS ADO NET Destination.Paths[OLE DB Source Output]"
+          TopLeft="145.74999895071,59.9999996900559">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="101.333332041899,58.7333315201601"
+              Start="0,0"
+              End="101.333332041899,51.2333315201601">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.36666576008" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,25.36666576008"
+                    Point2="0,29.36666576008"
+                    Point3="4,29.36666576008" />
+                  <mssgle:LineSegment
+                    End="97.3333320418994,29.36666576008" />
+                  <mssgle:CubicBezierSegment
+                    Point1="97.3333320418994,29.36666576008"
+                    Point2="101.333332041899,29.36666576008"
+                    Point3="101.333332041899,33.36666576008" />
+                  <mssgle:LineSegment
+                    End="101.333332041899,51.2333315201601" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\SSIS ADO NET Destination\ADO NET Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SSIS ADO NET Destination\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

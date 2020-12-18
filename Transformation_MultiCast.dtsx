@@ -1,0 +1,983 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/6/2019 11:18:05 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-KSFBE82"
+  DTS:CreatorName="DESKTOP-KSFBE82\DEMEKE"
+  DTS:DTSID="{C6574165-8107-423D-9EB6-7692ADCBCED7}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="14.0.3026.27"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Transformation_MultiCast"
+  DTS:PackageType="5"
+  DTS:VersionBuild="5"
+  DTS:VersionGUID="{79A90DF7-4959-40B0-85BB-D9FA8D76F232}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-KSFBE82.BI_PRACTICE]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{D782518F-6A73-4CE8-A28A-7876E3243461}"
+      DTS:ObjectName="DESKTOP-KSFBE82.BI_PRACTICE">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=DESKTOP-KSFBE82;Initial Catalog=BI_PRACTICE;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Excel Connection Manager]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{0A3E5914-23E3-4B43-A8D0-49DBB7B11400}"
+      DTS:ObjectName="Excel Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\SSSI\Department.xls;Extended Properties=&quot;EXCEL 8.0;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Excel Connection Manager 1]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{757CD912-BF0D-4644-8C8E-050150A9B615}"
+      DTS:ObjectName="Excel Connection Manager 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\SSSI\Department.xls;Extended Properties=&quot;EXCEL 8.0;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\MULTICAST TRANSFORMATION"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{2B601D77-095C-4113-AA23-BB44D91770C8}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="MULTICAST TRANSFORMATION"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\MULTICAST TRANSFORMATION\Data Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\MULTICAST TRANSFORMATION\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\MULTICAST TRANSFORMATION\Data Conversion.Inputs[Data Conversion Input].Columns[DepartmentID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="DepartmentID"
+                      lineageId="Package\MULTICAST TRANSFORMATION\OLE DB Source.Outputs[OLE DB Source Output].Columns[DepartmentID]" />
+                    <inputColumn
+                      refId="Package\MULTICAST TRANSFORMATION\Data Conversion.Inputs[Data Conversion Input].Columns[Name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Name"
+                      lineageId="Package\MULTICAST TRANSFORMATION\OLE DB Source.Outputs[OLE DB Source Output].Columns[Name]" />
+                    <inputColumn
+                      refId="Package\MULTICAST TRANSFORMATION\Data Conversion.Inputs[Data Conversion Input].Columns[GroupName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="GroupName"
+                      lineageId="Package\MULTICAST TRANSFORMATION\OLE DB Source.Outputs[OLE DB Source Output].Columns[GroupName]" />
+                    <inputColumn
+                      refId="Package\MULTICAST TRANSFORMATION\Data Conversion.Inputs[Data Conversion Input].Columns[ModifiedDate]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="ModifiedDate"
+                      lineageId="Package\MULTICAST TRANSFORMATION\OLE DB Source.Outputs[OLE DB Source Output].Columns[ModifiedDate]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\MULTICAST TRANSFORMATION\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\MULTICAST TRANSFORMATION\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\MULTICAST TRANSFORMATION\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of DepartmentID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\MULTICAST TRANSFORMATION\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of DepartmentID]"
+                      name="Copy of DepartmentID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\MULTICAST TRANSFORMATION\OLE DB Source.Outputs[OLE DB Source Output].Columns[DepartmentID]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\MULTICAST TRANSFORMATION\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\MULTICAST TRANSFORMATION\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Name]"
+                      name="Copy of Name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\MULTICAST TRANSFORMATION\OLE DB Source.Outputs[OLE DB Source Output].Columns[Name]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\MULTICAST TRANSFORMATION\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of GroupName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\MULTICAST TRANSFORMATION\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of GroupName]"
+                      name="Copy of GroupName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\MULTICAST TRANSFORMATION\OLE DB Source.Outputs[OLE DB Source Output].Columns[GroupName]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\MULTICAST TRANSFORMATION\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of ModifiedDate]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\MULTICAST TRANSFORMATION\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of ModifiedDate]"
+                      name="Copy of ModifiedDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\MULTICAST TRANSFORMATION\OLE DB Source.Outputs[OLE DB Source Output].Columns[ModifiedDate]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\MULTICAST TRANSFORMATION\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\MULTICAST TRANSFORMATION\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\MULTICAST TRANSFORMATION\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\MULTICAST TRANSFORMATION\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\MULTICAST TRANSFORMATION\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\MULTICAST TRANSFORMATION\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\MULTICAST TRANSFORMATION\Excel Destination"
+              componentClassID="Microsoft.ExcelDestination"
+              contactInfo="Excel Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Excel Destination"
+              name="Excel Destination"
+              usesDispositions="true">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">Departemrnt</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\MULTICAST TRANSFORMATION\Excel Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager 1]"
+                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager 1]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\MULTICAST TRANSFORMATION\Excel Destination.Inputs[Excel Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Excel Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\MULTICAST TRANSFORMATION\Excel Destination.Inputs[Excel Destination Input].Columns[Copy of DepartmentID]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Copy of DepartmentID"
+                      externalMetadataColumnId="Package\MULTICAST TRANSFORMATION\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[DepartmentID]"
+                      lineageId="Package\MULTICAST TRANSFORMATION\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of DepartmentID]" />
+                    <inputColumn
+                      refId="Package\MULTICAST TRANSFORMATION\Excel Destination.Inputs[Excel Destination Input].Columns[Copy of Name]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Copy of Name"
+                      externalMetadataColumnId="Package\MULTICAST TRANSFORMATION\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Name]"
+                      lineageId="Package\MULTICAST TRANSFORMATION\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Name]" />
+                    <inputColumn
+                      refId="Package\MULTICAST TRANSFORMATION\Excel Destination.Inputs[Excel Destination Input].Columns[Copy of GroupName]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Copy of GroupName"
+                      externalMetadataColumnId="Package\MULTICAST TRANSFORMATION\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[GroupName]"
+                      lineageId="Package\MULTICAST TRANSFORMATION\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of GroupName]" />
+                    <inputColumn
+                      refId="Package\MULTICAST TRANSFORMATION\Excel Destination.Inputs[Excel Destination Input].Columns[Copy of ModifiedDate]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Copy of ModifiedDate"
+                      externalMetadataColumnId="Package\MULTICAST TRANSFORMATION\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[ModifiedDate]"
+                      lineageId="Package\MULTICAST TRANSFORMATION\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of ModifiedDate]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\MULTICAST TRANSFORMATION\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[DepartmentID]"
+                      dataType="wstr"
+                      length="255"
+                      name="DepartmentID" />
+                    <externalMetadataColumn
+                      refId="Package\MULTICAST TRANSFORMATION\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Name]"
+                      dataType="wstr"
+                      length="255"
+                      name="Name" />
+                    <externalMetadataColumn
+                      refId="Package\MULTICAST TRANSFORMATION\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[GroupName]"
+                      dataType="wstr"
+                      length="255"
+                      name="GroupName" />
+                    <externalMetadataColumn
+                      refId="Package\MULTICAST TRANSFORMATION\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[ModifiedDate]"
+                      dataType="wstr"
+                      length="255"
+                      name="ModifiedDate" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\MULTICAST TRANSFORMATION\Excel Destination.Outputs[Excel Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Excel Destination Error Output"
+                  synchronousInputId="Package\MULTICAST TRANSFORMATION\Excel Destination.Inputs[Excel Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\MULTICAST TRANSFORMATION\Excel Destination.Outputs[Excel Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\MULTICAST TRANSFORMATION\Excel Destination.Outputs[Excel Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\MULTICAST TRANSFORMATION\Excel Destination.Outputs[Excel Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\MULTICAST TRANSFORMATION\Excel Destination.Outputs[Excel Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\MULTICAST TRANSFORMATION\Excel Destination 1"
+              componentClassID="Microsoft.ExcelDestination"
+              contactInfo="Excel Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Excel Destination"
+              name="Excel Destination 1"
+              usesDispositions="true">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">Departemrnt</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\MULTICAST TRANSFORMATION\Excel Destination 1.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\MULTICAST TRANSFORMATION\Excel Destination 1.Inputs[Excel Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Excel Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\MULTICAST TRANSFORMATION\Excel Destination 1.Inputs[Excel Destination Input].Columns[Copy of DepartmentID]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Copy of DepartmentID"
+                      externalMetadataColumnId="Package\MULTICAST TRANSFORMATION\Excel Destination 1.Inputs[Excel Destination Input].ExternalColumns[DepartmentID]"
+                      lineageId="Package\MULTICAST TRANSFORMATION\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of DepartmentID]" />
+                    <inputColumn
+                      refId="Package\MULTICAST TRANSFORMATION\Excel Destination 1.Inputs[Excel Destination Input].Columns[Copy of Name]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Copy of Name"
+                      externalMetadataColumnId="Package\MULTICAST TRANSFORMATION\Excel Destination 1.Inputs[Excel Destination Input].ExternalColumns[Name]"
+                      lineageId="Package\MULTICAST TRANSFORMATION\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Name]" />
+                    <inputColumn
+                      refId="Package\MULTICAST TRANSFORMATION\Excel Destination 1.Inputs[Excel Destination Input].Columns[Copy of GroupName]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Copy of GroupName"
+                      externalMetadataColumnId="Package\MULTICAST TRANSFORMATION\Excel Destination 1.Inputs[Excel Destination Input].ExternalColumns[GroupName]"
+                      lineageId="Package\MULTICAST TRANSFORMATION\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of GroupName]" />
+                    <inputColumn
+                      refId="Package\MULTICAST TRANSFORMATION\Excel Destination 1.Inputs[Excel Destination Input].Columns[Copy of ModifiedDate]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Copy of ModifiedDate"
+                      externalMetadataColumnId="Package\MULTICAST TRANSFORMATION\Excel Destination 1.Inputs[Excel Destination Input].ExternalColumns[ModifiedDate]"
+                      lineageId="Package\MULTICAST TRANSFORMATION\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of ModifiedDate]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\MULTICAST TRANSFORMATION\Excel Destination 1.Inputs[Excel Destination Input].ExternalColumns[DepartmentID]"
+                      dataType="wstr"
+                      length="255"
+                      name="DepartmentID" />
+                    <externalMetadataColumn
+                      refId="Package\MULTICAST TRANSFORMATION\Excel Destination 1.Inputs[Excel Destination Input].ExternalColumns[Name]"
+                      dataType="wstr"
+                      length="255"
+                      name="Name" />
+                    <externalMetadataColumn
+                      refId="Package\MULTICAST TRANSFORMATION\Excel Destination 1.Inputs[Excel Destination Input].ExternalColumns[GroupName]"
+                      dataType="wstr"
+                      length="255"
+                      name="GroupName" />
+                    <externalMetadataColumn
+                      refId="Package\MULTICAST TRANSFORMATION\Excel Destination 1.Inputs[Excel Destination Input].ExternalColumns[ModifiedDate]"
+                      dataType="wstr"
+                      length="255"
+                      name="ModifiedDate" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\MULTICAST TRANSFORMATION\Excel Destination 1.Outputs[Excel Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Excel Destination Error Output"
+                  synchronousInputId="Package\MULTICAST TRANSFORMATION\Excel Destination 1.Inputs[Excel Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\MULTICAST TRANSFORMATION\Excel Destination 1.Outputs[Excel Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\MULTICAST TRANSFORMATION\Excel Destination 1.Outputs[Excel Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\MULTICAST TRANSFORMATION\Excel Destination 1.Outputs[Excel Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\MULTICAST TRANSFORMATION\Excel Destination 1.Outputs[Excel Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\MULTICAST TRANSFORMATION\Multicast"
+              componentClassID="Microsoft.Multicast"
+              contactInfo="Multicast;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Distributes every input row to every row in one or more outputs. For example, branch your data flow to make a copy of data so that some values can be masked before sharing with external partners."
+              name="Multicast">
+              <inputs>
+                <input
+                  refId="Package\MULTICAST TRANSFORMATION\Multicast.Inputs[Multicast Input 1]"
+                  name="Multicast Input 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\MULTICAST TRANSFORMATION\Multicast.Outputs[Multicast Output 1]"
+                  deleteOutputOnPathDetached="true"
+                  name="Multicast Output 1"
+                  synchronousInputId="Package\MULTICAST TRANSFORMATION\Multicast.Inputs[Multicast Input 1]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\MULTICAST TRANSFORMATION\Multicast.Outputs[Multicast Output 2]"
+                  deleteOutputOnPathDetached="true"
+                  name="Multicast Output 2"
+                  synchronousInputId="Package\MULTICAST TRANSFORMATION\Multicast.Inputs[Multicast Input 1]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\MULTICAST TRANSFORMATION\Multicast.Outputs[Multicast Output 3]"
+                  dangling="true"
+                  deleteOutputOnPathDetached="true"
+                  name="Multicast Output 3"
+                  synchronousInputId="Package\MULTICAST TRANSFORMATION\Multicast.Inputs[Multicast Input 1]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\MULTICAST TRANSFORMATION\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Department_Excel]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\MULTICAST TRANSFORMATION\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-KSFBE82.BI_PRACTICE]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-KSFBE82.BI_PRACTICE]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\MULTICAST TRANSFORMATION\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\MULTICAST TRANSFORMATION\OLE DB Source.Outputs[OLE DB Source Output].Columns[DepartmentID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\MULTICAST TRANSFORMATION\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DepartmentID]"
+                      length="255"
+                      lineageId="Package\MULTICAST TRANSFORMATION\OLE DB Source.Outputs[OLE DB Source Output].Columns[DepartmentID]"
+                      name="DepartmentID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\MULTICAST TRANSFORMATION\OLE DB Source.Outputs[OLE DB Source Output].Columns[Name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\MULTICAST TRANSFORMATION\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Name]"
+                      length="255"
+                      lineageId="Package\MULTICAST TRANSFORMATION\OLE DB Source.Outputs[OLE DB Source Output].Columns[Name]"
+                      name="Name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\MULTICAST TRANSFORMATION\OLE DB Source.Outputs[OLE DB Source Output].Columns[GroupName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\MULTICAST TRANSFORMATION\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[GroupName]"
+                      length="255"
+                      lineageId="Package\MULTICAST TRANSFORMATION\OLE DB Source.Outputs[OLE DB Source Output].Columns[GroupName]"
+                      name="GroupName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\MULTICAST TRANSFORMATION\OLE DB Source.Outputs[OLE DB Source Output].Columns[ModifiedDate]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\MULTICAST TRANSFORMATION\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ModifiedDate]"
+                      length="255"
+                      lineageId="Package\MULTICAST TRANSFORMATION\OLE DB Source.Outputs[OLE DB Source Output].Columns[ModifiedDate]"
+                      name="ModifiedDate"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\MULTICAST TRANSFORMATION\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DepartmentID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="DepartmentID" />
+                    <externalMetadataColumn
+                      refId="Package\MULTICAST TRANSFORMATION\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Name" />
+                    <externalMetadataColumn
+                      refId="Package\MULTICAST TRANSFORMATION\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[GroupName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="GroupName" />
+                    <externalMetadataColumn
+                      refId="Package\MULTICAST TRANSFORMATION\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ModifiedDate]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="ModifiedDate" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\MULTICAST TRANSFORMATION\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\MULTICAST TRANSFORMATION\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DepartmentID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\MULTICAST TRANSFORMATION\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DepartmentID]"
+                      name="DepartmentID" />
+                    <outputColumn
+                      refId="Package\MULTICAST TRANSFORMATION\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\MULTICAST TRANSFORMATION\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Name]"
+                      name="Name" />
+                    <outputColumn
+                      refId="Package\MULTICAST TRANSFORMATION\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[GroupName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\MULTICAST TRANSFORMATION\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[GroupName]"
+                      name="GroupName" />
+                    <outputColumn
+                      refId="Package\MULTICAST TRANSFORMATION\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ModifiedDate]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\MULTICAST TRANSFORMATION\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ModifiedDate]"
+                      name="ModifiedDate" />
+                    <outputColumn
+                      refId="Package\MULTICAST TRANSFORMATION\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\MULTICAST TRANSFORMATION\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\MULTICAST TRANSFORMATION\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\MULTICAST TRANSFORMATION\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\MULTICAST TRANSFORMATION.Paths[Data Conversion Output]"
+              endId="Package\MULTICAST TRANSFORMATION\Multicast.Inputs[Multicast Input 1]"
+              name="Data Conversion Output"
+              startId="Package\MULTICAST TRANSFORMATION\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\MULTICAST TRANSFORMATION.Paths[Multicast Output 1]"
+              endId="Package\MULTICAST TRANSFORMATION\Excel Destination 1.Inputs[Excel Destination Input]"
+              name="Multicast Output 1"
+              startId="Package\MULTICAST TRANSFORMATION\Multicast.Outputs[Multicast Output 1]" />
+            <path
+              refId="Package\MULTICAST TRANSFORMATION.Paths[Multicast Output 2]"
+              endId="Package\MULTICAST TRANSFORMATION\Excel Destination.Inputs[Excel Destination Input]"
+              name="Multicast Output 2"
+              startId="Package\MULTICAST TRANSFORMATION\Multicast.Outputs[Multicast Output 2]" />
+            <path
+              refId="Package\MULTICAST TRANSFORMATION.Paths[OLE DB Source Output]"
+              endId="Package\MULTICAST TRANSFORMATION\Data Conversion.Inputs[Data Conversion Input]"
+              name="OLE DB Source Output"
+              startId="Package\MULTICAST TRANSFORMATION\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="230.4,42.4"
+          Id="Package\MULTICAST TRANSFORMATION"
+          TopLeft="102.583332698792,83.295588190257" />
+        <AnnotationLayout
+          Text="Synchronous transformation allows you to distribute its input to one or more outputs. &#xD;&#xA;This transformation is similar to the Conditional Split transformation. &#xD;&#xA;Both transformations direct an input to multiple outputs. The difference between &#xD;&#xA;the two is that the Multicast transformation directs every row to every output, and &#xD;&#xA;the Conditional Split directs a row to a single output."
+          ParentId="Package"
+          FontInfo="{assembly:Null}"
+          Size="484.8,104"
+          Id="c73eaa1e-290f-42a9-9c70-813bc1e376d2"
+          TopLeft="101.571421839449,168.770587657313" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\MULTICAST TRANSFORMATION">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="150.4,42.4"
+          Id="Package\MULTICAST TRANSFORMATION\OLE DB Source"
+          TopLeft="181.488092533712,12.3809521595637" />
+        <NodeLayout
+          Size="157.6,42.4"
+          Id="Package\MULTICAST TRANSFORMATION\Data Conversion"
+          TopLeft="174.9999919184,91.7714280791643" />
+        <NodeLayout
+          Size="169.6,42.4"
+          Id="Package\MULTICAST TRANSFORMATION\Excel Destination 1"
+          TopLeft="61.857141789429,291.586832673995" />
+        <NodeLayout
+          Size="160,42.4"
+          Id="Package\MULTICAST TRANSFORMATION\Excel Destination"
+          TopLeft="345.84523215715,293.588792825416" />
+        <NodeLayout
+          Size="121.6,42.4"
+          Id="Package\MULTICAST TRANSFORMATION\Multicast"
+          TopLeft="217.309519987478,180.233892247449" />
+        <EdgeLayout
+          Id="Package\MULTICAST TRANSFORMATION.Paths[Multicast Output 2]"
+          TopLeft="297.042853320811,222.633892247449">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="128.802378836339,70.954900577967"
+              Start="0,0"
+              End="128.802378836339,63.454900577967">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.9348555603658" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,24.9348555603658"
+                    Point2="0,28.9348555603658"
+                    Point3="4,28.9348555603658" />
+                  <mssgle:LineSegment
+                    End="124.802378836339,28.9348555603658" />
+                  <mssgle:CubicBezierSegment
+                    Point1="124.802378836339,28.9348555603658"
+                    Point2="128.802378836339,28.9348555603658"
+                    Point3="128.802378836339,32.9348555603658" />
+                  <mssgle:LineSegment
+                    End="128.802378836339,63.454900577967" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="56.4011894181697,33.9348555603658,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\MULTICAST TRANSFORMATION.Paths[Multicast Output 1]"
+          TopLeft="259.176186654144,222.633892247449">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-112.519044864716,68.9529404265456"
+              Start="0,0"
+              End="-112.519044864716,61.4529404265456">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.1184718103056" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,24.1184718103056"
+                    Point2="0,28.1184718103056"
+                    Point3="-4,28.1184718103056" />
+                  <mssgle:LineSegment
+                    End="-108.519044864716,28.1184718103056" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-108.519044864716,28.1184718103056"
+                    Point2="-112.519044864716,28.1184718103056"
+                    Point3="-112.519044864716,32.1184718103056" />
+                  <mssgle:LineSegment
+                    End="-112.519044864716,61.4529404265456" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-64.2595224323578,33.1184718103056,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\MULTICAST TRANSFORMATION.Paths[Data Conversion Output]"
+          TopLeft="253.7999919184,134.171428079164">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="24.3095280690775,46.0624641682846"
+              Start="0,0"
+              End="24.3095280690775,38.5624641682846">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.0312320841423" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19.0312320841423"
+                    Point2="0,23.0312320841423"
+                    Point3="4,23.0312320841423" />
+                  <mssgle:LineSegment
+                    End="20.3095280690775,23.0312320841423" />
+                  <mssgle:CubicBezierSegment
+                    Point1="20.3095280690775,23.0312320841423"
+                    Point2="24.3095280690775,23.0312320841423"
+                    Point3="24.3095280690775,27.0312320841423" />
+                  <mssgle:LineSegment
+                    End="24.3095280690775,38.5624641682846" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\MULTICAST TRANSFORMATION.Paths[OLE DB Source Output]"
+          TopLeft="255.244042226056,54.7809521595637">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,36.9904759196006"
+              Start="0,0"
+              End="0,29.4904759196006">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.4904759196006" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\MULTICAST TRANSFORMATION\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\MULTICAST TRANSFORMATION\Excel Destination 1">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\MULTICAST TRANSFORMATION\Excel Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
